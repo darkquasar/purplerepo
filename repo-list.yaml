@@ -1717,10 +1717,3 @@ repos:
       - active-defense
       - tool-adversary
     contributor_name: darkquasar
-  - repo_url: https://github.com/darkquasar/AzureHunter
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-    contributor_name: darkquasar
