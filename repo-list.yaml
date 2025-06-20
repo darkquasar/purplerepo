@@ -287,13 +287,6 @@ repos:
       - azure-cloud
       - pkm-pocket-pipeline
     contributor_name: darkquasar
-  - repo_url: https://github.com/jsecurity101/RandomPOCs
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - driver-control
-    contributor_name: darkquasar
   - repo_url: https://github.com/last-byte/PersistenceSniper
     tags:
       - github-repo
@@ -309,13 +302,6 @@ repos:
       - persistence
       - registry
       - techniques
-    contributor_name: darkquasar
-  - repo_url: https://github.com/jsecurity101/RandomPOCs
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - driver-control
     contributor_name: darkquasar
   - repo_url: https://github.com/nettitude/ETWHash
     tags:
