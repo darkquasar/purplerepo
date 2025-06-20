@@ -1680,3 +1680,11 @@ repos:
       - active-defense
       - tool-adversary
     contributor_name: darkquasar
+  - repo_url: https://github.com/rasta-mouse/SCMUACBypass
+    tags:
+      - github-repo
+      - tradecraft-tool
+      - offensive-tradecraft
+      - cobalt-strike
+      - kerberos
+    contributor_name: darkquasar
