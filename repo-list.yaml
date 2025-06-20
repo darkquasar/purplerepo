@@ -1680,13 +1680,6 @@ repos:
       - defensive-tradecraft
       - dfir
     contributor_name: darkquasar
-  - repo_url: https://github.com/S3N4T0R-0X0/AM0N-Eye.git
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - c2
-    contributor_name: darkquasar
   - repo_url: https://github.com/The-DFIR-Report/Suricata-Rules/blob/main/potential-impacket-wmiexec.py-activity.rules
     tags:
       - github-repo
