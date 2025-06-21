@@ -1586,3 +1586,11 @@ repos:
       - cobalt-strike
       - kerberos
     contributor_name: darkquasar
+  - repo_url: https://github.com/0xHossam/Killer
+    tags:
+      - github-repo
+      - tradecraft-tool
+      - offensive-tradecraft
+      - defense-evasion
+      - red-team
+    contributor_name: darkquasar

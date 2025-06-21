@@ -6,7 +6,7 @@ Test script for the repo change detector
 import os
 import tempfile
 import yaml
-from detect_repo_changes import RepoChangeDetector, RepoEntry
+from .detect_repo_changes import RepoChangeDetector, RepoEntry
 
 
 def create_test_yaml(repos_data):
