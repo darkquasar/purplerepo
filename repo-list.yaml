@@ -481,11 +481,6 @@ repos:
       - tradecraft-tool
       - defensive-tradecraft
       - offensive-tradecraft
-      - security
-      - security-tools
-      - privacy
-      - osint
-      - sysadmin
     contributor_name: darkquasar
   - repo_url: https://github.com/LearningKijo/KQL/tree/main/KQL-Effective-Use
     tags:
@@ -494,12 +489,6 @@ repos:
       - tradecraft-tool
       - defensive-tradecraft
       - edr
-      - incident-response
-      - data-exfiltration
-      - azure-cloud
-      - kql
-      - kusto
-      - xdr
     contributor_name: darkquasar
   - repo_url: https://github.com/foxlox/GIUDA.git
     tags:
@@ -584,23 +573,6 @@ repos:
       - ssh
       - tunnel-proxy
       - tunneling
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xHossam/Killer
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - defense-evasion
-      - red-team
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xHossam/Killer
-    tags:
-      - github-repo
-      - threat-hunting
-      - cyber-deception
-      - bloodhound
-      - summarize-article
-      - pkm-pocket-pipeline
     contributor_name: darkquasar
   - repo_url: https://github.com/0x4D31/deception-as-detection
     tags:
@@ -1144,9 +1116,6 @@ repos:
       - github-repo
       - python
       - data-analytics
-      - data
-      - download-manager
-      - fatiando-a-terra
       - ftp
       - http
       - python3
@@ -1163,20 +1132,6 @@ repos:
       - threat-intelligence
       - machine-learning
       - ai-llm
-      - ragintel
-      - graph
-      - mltk
-      - advanced-persistent-threat
-      - cyber-threat-intelligence
-      - deep-learning
-      - deeplearning
-      - graph-algorithms
-      - machine-learning-algorithms
-      - natural-language-processing
-      - nlp
-      - nlp-machine-learning
-      - nlp-parsing
-      - threat-analysis
     contributor_name: darkquasar
   - repo_url: https://github.com/tsale/EDR-Telemetry
     tags:
@@ -1237,17 +1192,6 @@ repos:
       - pentest
       - threat-intel
       - osint
-      - data-breach
-      - email
-      - email-checker
-      - go
-      - information-gathering
-      - osint-tool
-      - pwn
-      - python-hacking
-      - social-media
-      - socmint
-      - verification-service
     contributor_name: darkquasar
   - repo_url: https://github.com/mllamazares/STRIDE-vs-ASVS
     tags:
@@ -1258,11 +1202,6 @@ repos:
       - cybersecurity
       - threat-intel
       - threat-modelling
-      - asvs
-      - owasp
-      - security-requirements
-      - stride
-      - threat-modeling
     contributor_name: darkquasar
   - repo_url: https://github.com/fr0gger/Awesome-GPT-Agents
     tags:
@@ -1377,19 +1316,6 @@ repos:
       - security
       - automation
       - dfir
-      - incident-response
-      - tools
-      - infosec
-      - linux
-      - cyber
-      - cyber-security
-      - dfir-automation
-      - digital-forensic
-      - ir
-      - mdr
-      - powershell
-      - reporting
-      - soc
     contributor_name: darkquasar
   - repo_url: https://github.com/slincoln-aiq/DetectIQ
     tags:
@@ -1407,17 +1333,6 @@ repos:
       - defensive-tradecraft
       - azure
       - microsoft-mde
-      - block
-      - certificate
-      - defender
-      - defender-for-endpoint
-      - gpo
-      - mde
-      - microsoft
-      - pull-requests
-      - software
-      - softwareblocking
-      - unsanctioned
     contributor_name: darkquasar
   - repo_url: https://github.com/CTI-Driven/Advanced-Threat-Hunting-KQL-General-Campaigns/blob/main/APT29-Midnight-Blizzard/APT29%20large-scale%20spear-phishing%20campaign%20using%20RDP%20files.md
     tags:
@@ -1472,16 +1387,8 @@ repos:
       - python
       - threat-intelligence
       - dataset
-      - cobalt-strike-c2
       - beacon
       - cobaltstrike
-      - indicators-of-compromise
-      - iocs
-      - json
-      - jupyter
-      - jupyter-notebook
-      - pandas
-      - research
     contributor_name: darkquasar
   - repo_url: https://github.com/mhaskar/TokenBroker
     tags:
@@ -1552,15 +1459,6 @@ repos:
       - llm
       - threat-intel
       - ai
-      - cisa-kev
-      - claude-desktop
-      - cve
-      - epss
-      - mcp
-      - nvd
-      - python
-      - threat-intelligence
-      - vulnerability-management
     contributor_name: darkquasar
   - repo_url: https://github.com/acquiredsecurity/forensic-timeliner
     tags:
