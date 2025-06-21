@@ -24,55 +24,177 @@ The API will be made available soon so it can be integrated into automation or a
 
 This repository hosts the curated list of cybersecurity-related GitHub projects (`repo-list.yaml`) that powers the PurpleRepo application. Your contributions here directly enhance the data available through `hunt.quasarops.com`.
 
-## Contribution Guidelines
+## Contributing to PurpleRepo
 
-We welcome contributions to expand and improve our list of repositories! Here's how you can help:
+We welcome contributions to expand and improve our curated list of cybersecurity repositories! 🎉
 
-### Adding New Repositories
+### 🚀 Quick Start for Contributors
 
-To add a new repository, please edit the `repo-list.yaml` file and submit a Pull Request (PR). Each entry should follow this format:
+#### 1. Development Setup
+```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/purplerepo.git
+cd purplerepo
+
+# Install dependencies (includes pre-commit hooks)
+uv sync --dev
+
+# Install pre-commit hooks
+uv run pre-commit install
+```
+
+#### 2. Adding New Repositories
+Edit `repo-list.yaml` and add your entry:
 
 ```yaml
 - repo_url: https://github.com/user/repository
-  initial_tags:
-    - tag1
-    - tag2
+  tags:
+    - github-repo
+    - offensive-tradecraft
     - relevant-category
   contributor_name: YourGitHubUsername
 ```
 
-**Guidelines for adding repositories:**
+#### 3. Test Your Changes Locally
+```bash
+# Run validation checks
+uv run pre-commit run --all-files
 
-1.  **Relevance:** Ensure the repository is relevant to cybersecurity (offensive, defensive, DFIR, threat intelligence, GenAI, automation, etc.).
-2.  **`repo_url`**: Provide the full HTTPS URL to the GitHub repository.
-3.  **`initial_tags`**:
-    *   Include descriptive tags.
-    *   Use lowercase and hyphens for multi-word tags (e.g., `offensive-tradecraft`, `dfir-tool`).
-    *   Consider tags like `github-repo`, `offensive-tradecraft`, `defensive-tradecraft`, `detection-engineering`, `malware-analysis`, `osint`, `cloud-security`, etc.
-    *   Add at least one tag indicating the primary domain (e.g., `offensive`, `defensive`, `forensics`).
-4.  **`contributor_name`**: Add your GitHub username so we can give you credit!
+# If all checks pass, commit your changes
+git add repo-list.yaml
+git commit -m "Add awesome-security-tool repository"
+git push origin your-branch-name
+```
 
-### Reporting Issues or Suggesting Enhancements
+### 📋 Validation Rules
 
-If you find an issue with an existing entry (e.g., broken link, incorrect tags) or have suggestions for improving the repository or the contribution process, please open an issue on GitHub.
+Your contributions must follow these rules (automatically enforced):
 
-### Pull Request Process
+#### **Repository Entry Format**
+- ✅ **`repo_url`**: Valid GitHub or Gist HTTPS URL
+- ✅ **`tags`**: List of 1-6 descriptive tags
+- ✅ **`contributor_name`**: Your GitHub username (required)
 
-1.  Fork the repository.
-2.  Create a new branch for your changes (e.g., `git checkout -b add-awesome-repo`).
-3.  Make your changes in your branch.
-    *   If adding a new repository, add it to `repo-list.yaml`.
-    *   Ensure your YAML syntax is correct.
-4.  Commit your changes with a clear and descriptive commit message.
-5.  Push your changes to your fork.
-6.  Open a Pull Request to the `main` branch of this repository.
-7.  In your PR description, briefly explain the changes you've made. If you added new repositories, list them.
+#### **Tag Guidelines**
+- ✅ **Format**: Lowercase with hyphens (e.g., `offensive-tradecraft`)
+- ✅ **Count**: Maximum 6 tags per repository
+- ✅ **Examples**: `github-repo`, `defensive-tradecraft`, `malware-analysis`, `cloud-security`
 
-### Code of Conduct
+#### **Change Limits**
+- ✅ **Maximum 5 repositories** can be added/removed per Pull Request
+- ✅ **No duplicate URLs** allowed
+- ✅ **Valid YAML syntax** required
 
-While this repository primarily manages a data file, we expect all contributors to adhere to a high standard of respect and professionalism. Please be courteous and constructive in all interactions. (A more formal Code of Conduct may be added later if needed).
+### 🏷️ Recommended Tags
 
-Thank you for helping make PurpleRepo a valuable resource for the cybersecurity community!
+Use these standardized tags to categorize repositories:
+
+**Primary Categories:**
+- `offensive-tradecraft` - Red team, penetration testing, attack tools
+- `defensive-tradecraft` - Blue team, detection, defense tools
+- `threat-hunting` - Threat hunting methodologies and tools
+- `dfir` - Digital forensics and incident response
+- `malware-analysis` - Malware analysis and reverse engineering
+- `osint` - Open source intelligence gathering
+- `cloud-security` - Cloud security tools and resources
+
+**Technology/Platform:**
+- `azure`, `aws-cloud`, `kubernetes`, `docker`
+- `windows`, `linux`, `macos`
+- `powershell`, `python`, `golang`
+
+**Tool Types:**
+- `tradecraft-tool`, `detection-engineering`, `automation`
+- `ai-llm`, `machine-learning`, `data-analytics`
+
+### 🔄 Pull Request Process
+
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b add-security-tool`
+3. **Add** your repositories to `repo-list.yaml`
+4. **Test** locally: `uv run pre-commit run --all-files`
+5. **Commit** with clear message: `git commit -m "Add XYZ security tool"`
+6. **Push** to your fork: `git push origin add-security-tool`
+7. **Open** a Pull Request with description of changes
+
+### ✅ Automated Validation
+
+Every Pull Request automatically validates:
+
+#### **Pre-commit Hooks (Local)**
+- YAML syntax validation
+- Required fields check
+- Tag format validation
+- Duplicate URL detection
+- File formatting
+
+#### **GitHub Actions (PR)**
+- All pre-commit validations
+- Change limit enforcement (max 5 changes)
+- Detailed error reporting in PR comments
+
+### 🛠️ Troubleshooting
+
+#### **Pre-commit Hook Failures**
+```bash
+# Fix validation errors and try again
+uv run pre-commit run --all-files
+
+# Skip hooks only if absolutely necessary
+git commit --no-verify -m "Emergency commit"
+```
+
+#### **Common Validation Errors**
+- **"Too many tags"**: Reduce to 6 or fewer tags
+- **"Invalid tag format"**: Use lowercase with hyphens
+- **"Duplicate URL"**: Check if repository already exists
+- **"Missing contributor_name"**: Add your GitHub username
+- **"Too many changes"**: Split into multiple PRs with ≤5 changes each
+
+#### **Testing Changes**
+```bash
+# Test specific file
+uv run pre-commit run --files repo-list.yaml
+
+# Test all files
+uv run pre-commit run --all-files
+
+# Update pre-commit hooks
+uv run pre-commit autoupdate
+```
+
+### 📝 Repository Guidelines
+
+#### **Relevance Criteria**
+Repositories should be relevant to:
+- Cybersecurity (offensive/defensive)
+- Digital forensics and incident response
+- Threat intelligence and hunting
+- Security automation and tooling
+- AI/ML for security applications
+- Cloud security and DevSecOps
+
+#### **Quality Standards**
+- Active or historically significant projects
+- Clear documentation and README
+- Legitimate security research/tools
+- No malicious or illegal content
+
+### 🤝 Code of Conduct
+
+- Be respectful and professional in all interactions
+- Provide constructive feedback and suggestions
+- Help maintain high-quality, relevant content
+- Follow the established contribution guidelines
+
+### 🆘 Getting Help
+
+- **Validation Issues**: Check the PR comments for detailed error messages
+- **Questions**: Open an issue with the `question` label
+- **Bug Reports**: Open an issue with the `bug` label
+- **Feature Requests**: Open an issue with the `enhancement` label
+
+Thank you for helping make PurpleRepo a valuable resource for the cybersecurity community! 🛡️⚔️
 
 # Repository Change Detection System
 

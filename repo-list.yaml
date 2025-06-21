@@ -1,1533 +1,1017 @@
 repos:
-  - repo_url: https://github.com/secureworks/TokenMan
-    tags:
-      - github-repo
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Ignitetechnologies/Nmap-For-Pentester
-    tags:
-      - github-repo
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ZeroMemoryEx/Amsi-Killer
-    tags:
-      - github-repo
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://gist.github.com/isaqueprofeta/d14f394d8679fce0a11d7961d514fcdd
-    tags:
-      - github-repo
-    contributor_name: darkquasar
-  - repo_url: https://github.com/kraken-ng
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - tool-adversary
-      - tool-webshell
-    contributor_name: darkquasar
-  - repo_url: https://github.com/efi-k/Corelight-Threat-Hunting-Guide-SIGMA-Pack
-    tags:
-      - github-repo
-      - network-forensics
-      - ids-ips
-      - corelight
-    contributor_name: darkquasar
-  - repo_url: https://github.com/BishopFox/cloudfox
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - security
-      - cloud
-    contributor_name: darkquasar
-  - repo_url: https://github.com/RhinoSecurityLabs/cloudgoat
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/hmaccelerate/DGA_Detection/blob/master/model/CNN_on_100K
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dga
-      - machine learning
-    contributor_name: darkquasar
-  - repo_url: https://github.com/idnahacks/GoodHound
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cybersecurity
-      - python
-      - blueteam
-      - active-directory
-      - redteam
-      - python3
-      - bloodhound
-      - purpleteam
-      - activedirectory
-      - neo4j
-      - py2neo
-    contributor_name: darkquasar
-  - repo_url: https://github.com/RustScan/RustScan
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - networking
-      - port
-      - scanning
-    contributor_name: darkquasar
-  - repo_url: https://github.com/matanolabs/matano
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - security-tools
-      - dfir
-      - cybersecurity
-      - cloud
-      - detection-engineering
-      - aws
-      - siem
-      - data-analytics
-      - aws-security
-      - cloud-security
-      - rust
-      - data-lake
-      - alerting
-      - apache-iceberg
-      - big-data
-      - cloud-native
-      - log-analytics
-      - log-management
-      - secops
-      - serverless
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Octoberfest7/Inline-Execute-PE
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - tools
-      - tool-adversary
-    contributor_name: darkquasar
-  - repo_url: https://github.com/KuroLabs/stegcloak
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - security
-      - security-tools
-      - tools
-      - cipher
-      - cryptography
-      - data-exfiltration
-      - hacking
-      - hacking-tool
-      - hacking-tools
-      - infosec
-      - privacy
-      - steganography
-      - stego
-      - javascript
-      - compression
-      - functional-programming
-      - ramdajs
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xacb/viewgen
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - tools
-      - hacking-tools
-      - .net
-      - web-app
-      - asp-net
-      - viewstate
-    contributor_name: darkquasar
-  - repo_url: https://github.com/a7t0fwa7/FIleAndStringEncryptor
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - tools
-      - tool-adversary
-    contributor_name: darkquasar
-  - repo_url: https://github.com/fr0gger/IATelligence
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - tools
-      - python
-      - malware-analysis
-      - iat
-      - reverse-engineer
-      - gpt-3
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mark-hallman/plaso_filters
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - dfir
-      - cybersecurity
-      - plaso
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Accenture/Spartacus
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - dfir
-      - autosum
-      - windows
-      - dll-hijacking
-      - accenture-security
-      - com-hijacking
-      - dll-proxy-generation
-      - procmon
-      - proxy-dlls
-      - skeleton-dll
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Cloud-Architekt/AzureAD-Attack-Defense
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - azure
-      - threat-hunting-ideas
-      - azure-ad
-      - cyber-defence-strategy
-      - azureactivedirectory
-      - itdr
-      - microsoftentraid
-      - microsoftsentinel
-    contributor_name: darkquasar
-  - repo_url: https://github.com/marcusbakker/KQL
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - kql
-      - kusto
-      - cheatsheets
-      - query-language
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AggressiveUser/AllForOne
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - pkm-pocket-pipeline
-    contributor_name: darkquasar
-  - repo_url: https://github.com/carlospolop/PEASS-ng
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - linux
-      - script
-      - shell
-      - windows
-      - pkm-pocket-pipeline
-      - enumeration
-      - bash
-      - batch
-      - batch-script
-      - color
-      - csharp
-      - exe
-      - linpe
-      - linpeas
-      - one-liner
-      - oneliner
-      - peas
-      - privesc
-      - unix
-      - winpeas
-    contributor_name: darkquasar
-  - repo_url: https://github.com/iknowjason/Awesome-CloudSec-Labs
-    tags:
-      - github-repo
-      - azure
-      - aws-cloud
-      - azure-cloud
-      - cyberwarrior-analyst-training-101
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ZeroMemoryEx/Blackout
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/jsa2/EAST
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure-ad
-      - azure-cloud
-      - pkm-pocket-pipeline
-    contributor_name: darkquasar
-  - repo_url: https://github.com/last-byte/PersistenceSniper
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - powershell-module
-      - incident-response
-      - windows
-      - powershell
-      - powershell-script
-      - tactic-persistence
-      - malware-detection
-      - persistence
-      - registry
-      - techniques
-    contributor_name: darkquasar
-  - repo_url: https://github.com/nettitude/ETWHash
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - tool-adversary
-      - etw
-      - redteam
-      - redteam-tools
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Orange-Cyberdefense/GOAD
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - pentest
-      - active-directory
-      - ansible
-      - infrastructure-as-code
-      - terraform
-      - lab
-      - vagrant
-    contributor_name: darkquasar
-  - repo_url: https://github.com/QueenSquishy/Zombie/blob/main/Lists/RMM%20Tools
-    tags:
-      - github-repo
-      - ttp-rat
-      - remote-access
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ZeroMemoryEx/C2-Hunter
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - memory-forensics
-      - ioc-scanner
-    contributor_name: darkquasar
-  - repo_url: https://github.com/spacesiren/spacesiren
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - aws-cloud
-      - cyber-deception
-      - aws
-      - terraform
-      - honeypot
-      - cyber-defence-strategy
-      - lambda
-    contributor_name: darkquasar
-  - repo_url: https://github.com/kraken-ng/Kraken
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - security
-      - red-team
-      - evasion
-      - webshell
-      - rce
-    contributor_name: darkquasar
-  - repo_url: https://github.com/cisagov/untitledgoosetool
-    tags:
-      - github-repo
-      - threat-hunting
-      - dfir
-      - cloud-forensics
-    contributor_name: darkquasar
-  - repo_url: https://github.com/jatrost/awesome-detection-rules
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - yara
-      - exploit-kit
-      - sigma-rules
-      - rules-engine
-      - threat-detection
-    contributor_name: darkquasar
-  - repo_url: https://github.com/hasherezade/tiny_tracer/releases/tag/2.3
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - malware-analysis
-      - windows-syscalls
-      - reverse-engineering
-      - api-trace
-      - dbi
-      - intel-pintools
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mentebinaria/retoolkit
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - windows
-      - malware-analysis
-      - reverse-engineering
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AbdulRhmanAlfaifi/CryptnetURLCacheParser
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ArsenalRecon/Arsenal-Image-Mounter
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - image-mounter
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Adkali/PowerJoker
-    tags:
-      - github-repo
-      - offensive-tradecraft
-      - linux
-      - powershell
-      - python3
-      - offensive-security
-      - reverse-shell
-      - edr-bypass
-      - evade
-      - execute
-      - execution
-      - github
-      - joker
-      - methods
-      - obfuscate-strings
-      - obfuscation
-      - power
-      - powershell-reverse-shell
-      - python-reverse-shell
-      - windows-10
-      - windows-11
-      - windows-reverse-shell
-    contributor_name: darkquasar
-  - repo_url: https://github.com/timo123421/Automatic-Intelligence-feed/blob/main/Recon.ps1
-    tags:
-      - github-repo
-      - defensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0x4D31/awesome-threat-detection
-    tags:
-      - github-repo
-      - threat-hunting
-      - defensive-tradecraft
-      - security
-      - incident-response
-      - detection
-      - awesome-list
-      - threat-detection
-      - awesome
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Lissy93/web-check
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/LearningKijo/KQL/tree/main/KQL-Effective-Use
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - edr
-    contributor_name: darkquasar
-  - repo_url: https://github.com/foxlox/GIUDA.git
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - active-directory
-      - kerberos
-    contributor_name: darkquasar
-  - repo_url: https://github.com/MzHmO/PowershellKerberos/blob/main/dumper.ps1
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - active-directory
-      - kerberos
-      - tactic-cred-dumping
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Sh1n0g1/z9
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - powershell
-      - deobfuscate
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mvelazc0/BadZure
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - azure-active-directory
-      - purpleteaming
-    contributor_name: darkquasar
-  - repo_url: https://github.com/JPCERTCC/LogonTracer
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - dfir
-      - blueteam
-      - active-directory
-      - visualization
-      - javascript
-      - event-log
-      - python-3
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mitre-attack/attack-arsenal/blob/master/adversary_emulation/APT29/Emulation_Plan/Day%202/payloads/stepFourteen_credDump.ps1
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - tactic-cred-dumping
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Octoberfest7/TeamsPhisher
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - phishing
-      - microsoft-teams
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mrwadams/takedown-gpt
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - python
-      - ai-llm
-      - streamlit
-    contributor_name: darkquasar
-  - repo_url: https://github.com/anderspitman/awesome-tunneling
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - ngrok
-      - ngrok-alternative
-      - self-hosted
-      - ssh
-      - tunnel-proxy
-      - tunneling
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0x4D31/deception-as-detection
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - cyber-deception
-      - detection
-      - deception
-      - honeypot
-      - honeytoken
-    contributor_name: darkquasar
-  - repo_url: https://github.com/vonderchild/digital-forensics-lab
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - cyber-training
-      - cyberwarrior-analyst-training-101
-      - training
-    contributor_name: darkquasar
-  - repo_url: https://github.com/We5ter/Scanners-Box
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - redteam-tools
-      - penetration-testing
-      - pentesting-tools
-      - ioc-scanner
-      - apk-analysis
-      - binary-analysis
-      - code-analyzer
-      - devsecops
-      - exploitation-framework
-      - hacker-tools
-      - information-security
-      - malware-analysis
-      - privacy-compliance
-      - security-audit
-      - security-automation
-      - smart-contracts
-      - static-analysis
-      - vulnerability-scanners
-      - wifi-hacking
-      - wifi-security
-    contributor_name: darkquasar
-  - repo_url: https://github.com/telekom-security/tpotce
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - cyber-deception
-      - deception
-      - honeypot
-      - docker
-      - elk
-      - network-security
-      - t-pot
-    contributor_name: darkquasar
-  - repo_url: https://github.com/codeyourweb/fastfinder
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - incident-response
-      - ioc-scanner
-      - investigation
-    contributor_name: darkquasar
-  - repo_url: https://github.com/optiv/ScareCrow
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - technique-dll-sideload
-    contributor_name: darkquasar
-  - repo_url: https://github.com/MHaggis/ShellSweep
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - ioc-scanner
-      - webshell
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Sq00ky/SMB-Session-Spoofing
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cyber-deception
-      - tactic-session-enum
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Shell-Company/QRExfil
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - security-tools
-      - dlp
-      - tactic-exfiltration
-      - technique-data-encoding
-      - qrcode
-      - shell-script
-    contributor_name: darkquasar
-  - repo_url: https://github.com/nyxgeek/onedrive_user_enum
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - azure
-      - office365
-      - pentest
-      - pentesting
-      - osint
-      - azure-cloud
-      - o365
-      - m365
-      - enumeration
-      - onedrive
-      - onedrive-users
-      - user-enumeration
-    contributor_name: darkquasar
-  - repo_url: https://github.com/projectdiscovery/uncover
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - osint
-      - recon
-      - cli
-      - bugbounty
-      - reconnaissance
-      - pkm-pocket-pipeline
-      - asm
-      - attack-surface
-    contributor_name: darkquasar
-  - repo_url: https://github.com/FalconForceTeam/FalconHound
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - active-directory
-      - bloodhound
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AykutSarac/jsoncrack.com
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - nextjs
-      - yaml
-      - data-visualization
-      - graph
-      - json
-      - data-analytics
-      - csv
-      - diagrams
-      - react
-      - tool
-      - visualization
-    contributor_name: darkquasar
-  - repo_url: https://github.com/cado-security/cloudgrep
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-      - dfir
-      - cloud
-      - aws-cloud
-      - cloud-forensics
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mthcht/ThreatHunting-Keywords
-    tags:
-      - github-repo
-      - threat-hunting
-      - defensive-tradecraft
-      - dfir
-      - threat-intelligence
-    contributor_name: darkquasar
-  - repo_url: https://github.com/LuemmelSec/Custom-BloodHound-Queries
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - bloodhound
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mbrg/power-pwn/wiki/Modules:-Install-a-backdoor
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - microsoft365
-      - hacking
-      - hacking-tool
-      - pentesting
-      - azure-cloud
-      - redteam
-      - redteaming
-      - tactic-persistence
-      - ai-red-team
-      - blackhat2023
-      - blackhat2024
-      - copilot-for-microsoft-365
-      - copilotstudio
-      - defcon30
-      - lowcode
-      - m365
-      - nocode
-      - powerapps
-      - powerautomate
-      - redteamer
-      - roboticprocessautomation
-      - rpa
-    contributor_name: darkquasar
-  - repo_url: https://github.com/zer0condition/mhydeath
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr-evasion
-    contributor_name: darkquasar
-  - repo_url: https://github.com/BushidoUK/Breach-Report-Collection
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - threat-intel
-      - intel-report
-    contributor_name: darkquasar
-  - repo_url: https://github.com/t3l3machus/Villain
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - cybersecurity
-      - c2
-      - hacking
-      - hacking-tool
-      - pentest
-      - pentesting
-      - linux
-      - redteam
-      - redteam-tools
-      - offensive-security
-      - backdoor
-      - kali-linux
-      - open-source
-      - penetration-testing
-      - penetration-testing-tools
-      - readteaming
-    contributor_name: darkquasar
-  - repo_url: https://github.com/peasead/elastic-container
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - detection-lab
-      - lab-environment
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mxrch/GHunt
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - dfir
-      - osint
-      - recon
-      - email-forensics
-      - google
-      - hideandsec
-    contributor_name: darkquasar
-  - repo_url: https://github.com/dfir-dd/dfir-toolkit
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - dfir
-      - digital-forensics-incident-response
-      - forensic-analysis
-      - forensics-tools
-      - forensics
-      - osint
-      - digital-forensics
-      - recon
-      - email-forensics
-      - cli
-      - rust
-      - rust-lang
-    contributor_name: darkquasar
-  - repo_url: https://github.com/JLospinoso/gargoyle
-    tags:
-      - github-repo
-      - offensive-tradecraft
-      - defense-evasion
-      - security
-      - process-injection
-      - memory-forensics
-      - assembly
-      - memory-analysis
-      - pic
-      - rop-gadgets
-      - x86
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ACE-Responder/RogueSliver
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - c2
-      - sliver-c2
-    contributor_name: darkquasar
-  - repo_url: https://github.com/MrEmpy/Mantra
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - security
-      - hacking
-      - pentest
-      - tool
-      - api-security
-      - api
-      - bugbounty
-      - files
-      - javascript
-      - js
-      - key
-      - leak
-      - leaked-secrets
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xthirteen/MoveKit
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - threat-hunting-ideas
-      - .net
-      - cobalt strike
-    contributor_name: darkquasar
-  - repo_url: https://github.com/wddadk/Offensive-OSINT-Tools
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - hacking
-      - infosec
-      - pentest
-      - pentesting
-      - osint
-      - redteam
-      - redteam-tools
-      - redteaming
-      - information-gathering
-      - osint-tool
-      - awesome-list
-      - pentest-scripts
-      - pentesting-tools
-      - reconnaissance
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mvelazc0/msInvader
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - offensive-tradecraft
-      - azure-ad
-      - o365
-      - adversary-simulation
-      - purple-team
-    contributor_name: darkquasar
-  - repo_url: https://github.com/HavocFramework/Havoc
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - c2-framework
-    contributor_name: darkquasar
-  - repo_url: https://github.com/danielmiessler/fabric
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - ai
-      - ai-llm
-      - ragintel
-      - augmentation
-      - flourishing
-      - life
-      - work
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Sam0x90/CB-Threat-Hunting
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - edr
-      - detection
-    contributor_name: darkquasar
-  - repo_url: https://github.com/oobabooga/text-generation-webui
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - ai-llm
-    contributor_name: darkquasar
-  - repo_url: https://github.com/center-for-threat-informed-defense/sensor-mappings-to-attack
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cybersecurity
-      - ctid
-      - cyber-defense
-      - cyber-tools
-      - mitre-attack
-      - threat-informed-defense
-    contributor_name: darkquasar
-  - repo_url: https://github.com/farhanashrafdev/90DaysOfCyberSecurity?tab=readme-ov-file
-    tags:
-      - github-repo
-      - cybersecurity
-      - cyber-training
-      - cyberwarrior-analyst-training-101
-      - communityexchange
-      - ethical-hacking
-      - hacktoberfest
-      - learn
-    contributor_name: darkquasar
-  - repo_url: https://github.com/TrimarcJake/Locksmith
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - powershell-module
-      - powershell
-      - microsoft-entra
-      - active-directory
-      - active-directory-certificate-services
-      - ad-cs
-      - adcs
-      - pki
-      - powershell-script
-    contributor_name: darkquasar
-  - repo_url: https://github.com/naksyn/PythonMemoryModule
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr-evasion
-      - hacking
-      - python
-      - memory-forensics
-      - evasion
-      - memory-module
-      - memorymodule
-      - redteam
-      - redteam-tools
-      - redteaming
-      - runpe
-    contributor_name: darkquasar
-  - repo_url: https://github.com/naksyn/Pyramid
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr
-      - edr-evasion
-      - edr-testing
-      - hacking
-      - python
-      - memory-forensics
-      - redteam-tools
-      - redteaming
-    contributor_name: darkquasar
-  - repo_url: https://github.com/fatiando/pooch
-    tags:
-      - github-repo
-      - python
-      - data-analytics
-      - ftp
-      - http
-      - python3
-      - scipy
-      - scipy-stack
-    contributor_name: darkquasar
-  - repo_url: https://github.com/jackaduma/ThreatReportExtractor/blob/main/main.py
-    tags:
-      - github-repo
-      - security
-      - automation
-      - cybersecurity
-      - threat-intel
-      - threat-intelligence
-      - machine-learning
-      - ai-llm
-    contributor_name: darkquasar
-  - repo_url: https://github.com/tsale/EDR-Telemetry
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - edr
-    contributor_name: darkquasar
-  - repo_url: https://github.com/CCob/ThreadlessInject
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr-evasion
-      - thread-injection
-    contributor_name: darkquasar
-  - repo_url: https://github.com/MaorSabag/TrueSightKiller
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr-evasion
-      - tactic-loldrivers
-    contributor_name: darkquasar
-  - repo_url: https://github.com/evild3ad/MemProcFS-Analyzer
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - incident-response
-      - live-response
-      - powershell
-      - memory-forensics
-      - digital-forensics
-      - memprocfs
-    contributor_name: darkquasar
-  - repo_url: https://gist.github.com/adamsvoboda/8e248c6b7fb812af5d04daba141c867e
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://xacone.github.io/BestEdrOfTheMarket.html
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/alpkeskin/mosint
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - automation
-      - hacking
-      - pentest
-      - threat-intel
-      - osint
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mllamazares/STRIDE-vs-ASVS
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - cybersecurity
-      - threat-intel
-      - threat-modelling
-    contributor_name: darkquasar
-  - repo_url: https://github.com/fr0gger/Awesome-GPT-Agents
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cybersecurity
-      - llm
-      - infosec
-      - threat-intel
-      - agents
-    contributor_name: darkquasar
-  - repo_url: https://www.coresecurity.com/core-labs/articles/running-pes-inline-without-console
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - process-injection
-      - powershell
-      - cobalt-strike
-    contributor_name: darkquasar
-  - repo_url: https://github.com/RoseSecurity-Research/WolfPack
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - cybersecurity
-      - c2
-      - ansible
-      - infrastructure-as-code
-      - packer
-      - terraform
-    contributor_name: darkquasar
-  - repo_url: https://github.com/D00Movenok/BounceBack
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - c2
-      - pentest
-      - pentesting
-      - redteam
-    contributor_name: darkquasar
-  - repo_url: https://github.com/tclahr/uac
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - dfir
-      - incident-response
-    contributor_name: darkquasar
-  - repo_url: https://github.com/cocopollo/HunterM
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - mac-forensics
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mnrkbys/fjta
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - python
-      - forensics
-      - linux
-      - forensic
-    contributor_name: darkquasar
-  - repo_url: https://github.com/rabbitstack/fibratus
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xNinjaCyclone/EarlyCascade
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - process-injection
-    contributor_name: darkquasar
-  - repo_url: https://github.com/curated-intel
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/DS4SD/docling/tree/main
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - ai
-      - machine-learning
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Offensive-Panda/ProcessInjectionTechniques?tab=readme-ov-file
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - process-injection
-    contributor_name: darkquasar
-  - repo_url: https://github.com/securityjoes/MasterParser
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - security
-      - automation
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/slincoln-aiq/DetectIQ
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - detection-engineering
-      - ai-llm
-    contributor_name: darkquasar
-  - repo_url: https://github.com/jkerai1/SoftwareCertificates/tree/main/Bulk-IOC-CSVs
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-      - microsoft-mde
-    contributor_name: darkquasar
-  - repo_url: https://github.com/CTI-Driven/Advanced-Threat-Hunting-KQL-General-Campaigns/blob/main/APT29-Midnight-Blizzard/APT29%20large-scale%20spear-phishing%20campaign%20using%20RDP%20files.md
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - ragintel
-    contributor_name: darkquasar
-  - repo_url: https://github.com/BushidoUK/Russian-APT-Tool-Matrix
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - threat-intel
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AnacletoLAB/grape/tree/main?tab=readme-ov-file
-    tags:
-      - github-repo
-      - python
-      - machine-learning
-      - graph-thinking
-      - data-visualization
-      - graph
-      - high-performance
-      - knowledge-graph
-    contributor_name: darkquasar
-  - repo_url: https://github.com/grahamhelton/USP
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/BushidoUK/Ransomware-Tool-Matrix?tab=readme-ov-file
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cybersecurity
-      - hacking
-      - threat-intelligence
-      - detection-engineering
-      - cti
-      - osint
-      - ransomware
-      - threatintel
-    contributor_name: darkquasar
-  - repo_url: https://github.com/fox-it/cobaltstrike-beacon-data
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - python
-      - threat-intelligence
-      - dataset
-      - beacon
-      - cobaltstrike
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mhaskar/TokenBroker
-    tags:
-      - github-repo
-      - offensive-tradecraft
-      - token-compromise
-    contributor_name: darkquasar
-  - repo_url: https://github.com/CrowdStrike/VirtualGHOST
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - vmware
-      - virtualization
-    contributor_name: darkquasar
-  - repo_url: https://github.com/DCScoder/ESXiTri
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-      - esxi
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xNinjaCyclone/hellMaker
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ocsf/ocsf-schema
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - siem
-      - data-schema
-    contributor_name: darkquasar
-  - repo_url: https://github.com/sadreck/Codecepticon
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - edr-evasion
-      - payload-obfuscation
-    contributor_name: darkquasar
-  - repo_url: https://github.com/PuravsPoint/DecipheringUAL
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - microsoft365
-      - cybersecurity
-      - incident-response
-      - forensics
-      - azure-ad
-      - azure-cloud
-      - azure-cloud-forensics
-      - unified-audit-log-ual
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ali-ahsan-ali/TransferPatternGeneration
-    tags:
-      - github-repo
-      - data-science
-    contributor_name: darkquasar
-  - repo_url: https://github.com/ozanunal0/viper
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cybersecurity
-      - llm
-      - threat-intel
-      - ai
-    contributor_name: darkquasar
-  - repo_url: https://github.com/acquiredsecurity/forensic-timeliner
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/tylabs/quicksand
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/oloruntolaallbert/MS-Attack-Range/tree/main
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - detection-engineering
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Yamato-Security/suzaku
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-      - security
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://gist.github.com/secdev02/bcff2200fa7c1df75794c943d78dabb3#file-canarytoken-windows-fake-file-system-L483
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - cyber-deception
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Xacone/BestEdrOfTheMarket
-    tags:
-      - github-repo
-      - threat-hunting
-      - tradecraft-tool
-      - offensive-tradecraft
-      - defense-evasion
-      - edr
-      - edr-evasion
-      - edr-testing
-      - kernel-development
-      - kernel-driver
-    contributor_name: darkquasar
-  - repo_url: https://github.com/mverschu/CVE-2025-33073
-    tags:
-      - github-repo
-      - ntlm
-      - tradecraft-tool
-      - offensive-tradecraft
-      - privilege-escalation
-    contributor_name: darkquasar
-  - repo_url: https://github.com/silverhack/monkey365
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-    contributor_name: darkquasar
-  - repo_url: https://github.com/TracecatHQ/tracecat
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - security
-      - automation
-      - cybersecurity
-    contributor_name: darkquasar
-  - repo_url: https://github.com/Hexastrike/Slasher
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - virustotal
-    contributor_name: darkquasar
-  - repo_url: https://github.com/cudeso/tools/tree/master/qelp-ir-triage-esxi
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/The-DFIR-Report/Suricata-Rules/blob/main/potential-impacket-wmiexec.py-activity.rules
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - suricata
-      - network-forensics
-    contributor_name: darkquasar
-  - repo_url: https://github.com/praetorian-inc/gato
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - cloud
-      - tools
-    contributor_name: darkquasar
-  - repo_url: https://github.com/TryCatchHCF/Cloakify
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - threat-hunting-ideas
-    contributor_name: darkquasar
-  - repo_url: https://github.com/secureworks/TokenMan
-    tags:
-      - github-repo
-      - threat-hunting
-      - autosum
-      - active-defense
-      - tool-adversary
-    contributor_name: darkquasar
-  - repo_url: https://github.com/rasta-mouse/SCMUACBypass
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - cobalt-strike
-      - kerberos
-    contributor_name: darkquasar
-  - repo_url: https://github.com/0xHossam/Killer
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - offensive-tradecraft
-      - defense-evasion
-      - red-team
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AndrewRathbun/DFIRMindMaps
-    tags:
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/MHaggis/sysmon-dfir
-    tags:
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/AndrewRathbun/DFIRArtifactMuseum
-    tags:
-      - dfir
-    contributor_name: darkquasar
-  - repo_url: https://github.com/dfirtrack/dfirtrack
-    tags:
-      - dfir
-    contributor_name: darkquasar
+- repo_url: https://github.com/Ignitetechnologies/Nmap-For-Pentester
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/ZeroMemoryEx/Amsi-Killer
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/kraken-ng
+  tags:
+  - offensive-tradecraft
+  - tool-adversary
+  - tool-webshell
+  contributor_name: darkquasar
+- repo_url: https://github.com/efi-k/Corelight-Threat-Hunting-Guide-SIGMA-Pack
+  tags:
+  - network-forensics
+  - ids-ips
+  - corelight
+  contributor_name: darkquasar
+- repo_url: https://github.com/BishopFox/cloudfox
+  tags:
+  - offensive-tradecraft
+  - security
+  - cloud
+  contributor_name: darkquasar
+- repo_url: https://github.com/RhinoSecurityLabs/cloudgoat
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/hmaccelerate/DGA_Detection/blob/master/model/CNN_on_100K
+  tags:
+  - defensive-tradecraft
+  - dga
+  - machine-learning
+  contributor_name: darkquasar
+- repo_url: https://github.com/idnahacks/GoodHound
+  tags:
+  - defensive-tradecraft
+  - cybersecurity
+  - python
+  - blueteam
+  - active-directory
+  - redteam
+  contributor_name: darkquasar
+- repo_url: https://github.com/RustScan/RustScan
+  tags:
+  - offensive-tradecraft
+  - networking
+  - port
+  - scanning
+  contributor_name: darkquasar
+- repo_url: https://github.com/matanolabs/matano
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - security
+  - security-tools
+  - dfir
+  - cybersecurity
+  contributor_name: darkquasar
+- repo_url: https://github.com/Octoberfest7/Inline-Execute-PE
+  tags:
+  - offensive-tradecraft
+  - tools
+  - tool-adversary
+  contributor_name: darkquasar
+- repo_url: https://github.com/KuroLabs/stegcloak
+  tags:
+  - offensive-tradecraft
+  - security
+  - security-tools
+  - tools
+  - cipher
+  - cryptography
+  contributor_name: darkquasar
+- repo_url: https://github.com/0xacb/viewgen
+  tags:
+  - defensive-tradecraft
+  - tools
+  - hacking-tools
+  - .net
+  - web-app
+  - asp-net
+  contributor_name: darkquasar
+- repo_url: https://github.com/a7t0fwa7/FIleAndStringEncryptor
+  tags:
+  - tools
+  - tool-adversary
+  contributor_name: darkquasar
+- repo_url: https://github.com/fr0gger/IATelligence
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - tools
+  - python
+  - malware-analysis
+  - iat
+  contributor_name: darkquasar
+- repo_url: https://github.com/mark-hallman/plaso_filters
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - cybersecurity
+  - plaso
+  contributor_name: darkquasar
+- repo_url: https://github.com/Accenture/Spartacus
+  tags:
+  - dfir
+  - autosum
+  - windows
+  - dll-hijacking
+  - accenture-security
+  - com-hijacking
+  contributor_name: darkquasar
+- repo_url: https://github.com/Cloud-Architekt/AzureAD-Attack-Defense
+  tags:
+  - defensive-tradecraft
+  - azure
+  - threat-hunting-ideas
+  - azure-ad
+  - cyber-defence-strategy
+  - azureactivedirectory
+  contributor_name: darkquasar
+- repo_url: https://github.com/marcusbakker/KQL
+  tags:
+  - defensive-tradecraft
+  - kql
+  - kusto
+  - cheatsheets
+  - query-language
+  contributor_name: darkquasar
+- repo_url: https://github.com/AggressiveUser/AllForOne
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - pkm-pocket-pipeline
+  contributor_name: darkquasar
+- repo_url: https://github.com/carlospolop/PEASS-ng
+  tags:
+  - offensive-tradecraft
+  - linux
+  - script
+  - shell
+  - windows
+  - pkm-pocket-pipeline
+  contributor_name: darkquasar
+- repo_url: https://github.com/iknowjason/Awesome-CloudSec-Labs
+  tags:
+  - azure
+  - aws-cloud
+  - azure-cloud
+  - cyberwarrior-analyst-training-101
+  contributor_name: darkquasar
+- repo_url: https://github.com/ZeroMemoryEx/Blackout
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/jsa2/EAST
+  tags:
+  - defensive-tradecraft
+  - azure-ad
+  - azure-cloud
+  - pkm-pocket-pipeline
+  contributor_name: darkquasar
+- repo_url: https://github.com/last-byte/PersistenceSniper
+  tags:
+  - defensive-tradecraft
+  - powershell-module
+  - incident-response
+  - windows
+  - powershell
+  - powershell-script
+  contributor_name: darkquasar
+- repo_url: https://github.com/nettitude/ETWHash
+  tags:
+  - offensive-tradecraft
+  - tool-adversary
+  - etw
+  - redteam
+  - redteam-tools
+  contributor_name: darkquasar
+- repo_url: https://github.com/Orange-Cyberdefense/GOAD
+  tags:
+  - offensive-tradecraft
+  - pentest
+  - active-directory
+  - ansible
+  - infrastructure-as-code
+  - terraform
+  contributor_name: darkquasar
+- repo_url: https://github.com/QueenSquishy/Zombie/blob/main/Lists/RMM%20Tools
+  tags:
+  - ttp-rat
+  - remote-access
+  contributor_name: darkquasar
+- repo_url: https://github.com/ZeroMemoryEx/C2-Hunter
+  tags:
+  - defensive-tradecraft
+  - memory-forensics
+  - ioc-scanner
+  contributor_name: darkquasar
+- repo_url: https://github.com/spacesiren/spacesiren
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - security
+  - aws-cloud
+  - cyber-deception
+  - aws
+  contributor_name: darkquasar
+- repo_url: https://github.com/kraken-ng/Kraken
+  tags:
+  - offensive-tradecraft
+  - security
+  - red-team
+  - evasion
+  - webshell
+  - rce
+  contributor_name: darkquasar
+- repo_url: https://github.com/cisagov/untitledgoosetool
+  tags:
+  - threat-hunting
+  - dfir
+  - cloud-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/jatrost/awesome-detection-rules
+  tags:
+  - defensive-tradecraft
+  - yara
+  - exploit-kit
+  - sigma-rules
+  - rules-engine
+  - threat-detection
+  contributor_name: darkquasar
+- repo_url: https://github.com/hasherezade/tiny_tracer/releases/tag/2.3
+  tags:
+  - defensive-tradecraft
+  - malware-analysis
+  - windows-syscalls
+  - reverse-engineering
+  - api-trace
+  - dbi
+  contributor_name: darkquasar
+- repo_url: https://github.com/mentebinaria/retoolkit
+  tags:
+  - defensive-tradecraft
+  - windows
+  - malware-analysis
+  - reverse-engineering
+  contributor_name: darkquasar
+- repo_url: https://github.com/AbdulRhmanAlfaifi/CryptnetURLCacheParser
+  tags:
+  - defensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/ArsenalRecon/Arsenal-Image-Mounter
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - image-mounter
+  contributor_name: darkquasar
+- repo_url: https://github.com/Adkali/PowerJoker
+  tags:
+  - offensive-tradecraft
+  - linux
+  - powershell
+  - python3
+  - offensive-security
+  - reverse-shell
+  contributor_name: darkquasar
+- repo_url: https://github.com/timo123421/Automatic-Intelligence-feed/blob/main/Recon.ps1
+  tags:
+  - defensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/0x4D31/awesome-threat-detection
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - security
+  - incident-response
+  - detection
+  - awesome-list
+  contributor_name: darkquasar
+- repo_url: https://github.com/Lissy93/web-check
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/LearningKijo/KQL/tree/main/KQL-Effective-Use
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - edr
+  contributor_name: darkquasar
+- repo_url: https://github.com/foxlox/GIUDA.git
+  tags:
+  - offensive-tradecraft
+  - active-directory
+  - kerberos
+  contributor_name: darkquasar
+- repo_url: https://github.com/MzHmO/PowershellKerberos/blob/main/dumper.ps1
+  tags:
+  - offensive-tradecraft
+  - active-directory
+  - kerberos
+  - tactic-cred-dumping
+  contributor_name: darkquasar
+- repo_url: https://github.com/Sh1n0g1/z9
+  tags:
+  - defensive-tradecraft
+  - powershell
+  - deobfuscate
+  contributor_name: darkquasar
+- repo_url: https://github.com/mvelazc0/BadZure
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - azure-active-directory
+  - purpleteaming
+  contributor_name: darkquasar
+- repo_url: https://github.com/JPCERTCC/LogonTracer
+  tags:
+  - defensive-tradecraft
+  - security
+  - dfir
+  - blueteam
+  - active-directory
+  - visualization
+  contributor_name: darkquasar
+- repo_url: https://github.com/mitre-attack/attack-arsenal/blob/master/adversary_emulation/APT29/Emulation_Plan/Day%202/payloads/stepFourteen_credDump.ps1
+  tags:
+  - offensive-tradecraft
+  - tactic-cred-dumping
+  contributor_name: darkquasar
+- repo_url: https://github.com/Octoberfest7/TeamsPhisher
+  tags:
+  - offensive-tradecraft
+  - phishing
+  - microsoft-teams
+  contributor_name: darkquasar
+- repo_url: https://github.com/mrwadams/takedown-gpt
+  tags:
+  - defensive-tradecraft
+  - python
+  - ai-llm
+  - streamlit
+  contributor_name: darkquasar
+- repo_url: https://github.com/anderspitman/awesome-tunneling
+  tags:
+  - offensive-tradecraft
+  - ngrok
+  - ngrok-alternative
+  - self-hosted
+  - ssh
+  - tunnel-proxy
+  contributor_name: darkquasar
+- repo_url: https://github.com/0x4D31/deception-as-detection
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - security
+  - cyber-deception
+  - detection
+  - deception
+  contributor_name: darkquasar
+- repo_url: https://github.com/vonderchild/digital-forensics-lab
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - cyber-training
+  - cyberwarrior-analyst-training-101
+  - training
+  contributor_name: darkquasar
+- repo_url: https://github.com/We5ter/Scanners-Box
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - redteam-tools
+  - penetration-testing
+  - pentesting-tools
+  - ioc-scanner
+  contributor_name: darkquasar
+- repo_url: https://github.com/telekom-security/tpotce
+  tags:
+  - defensive-tradecraft
+  - security
+  - cyber-deception
+  - deception
+  - honeypot
+  - docker
+  contributor_name: darkquasar
+- repo_url: https://github.com/codeyourweb/fastfinder
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - dfir
+  - incident-response
+  - ioc-scanner
+  - investigation
+  contributor_name: darkquasar
+- repo_url: https://github.com/optiv/ScareCrow
+  tags:
+  - offensive-tradecraft
+  - technique-dll-sideload
+  contributor_name: darkquasar
+- repo_url: https://github.com/MHaggis/ShellSweep
+  tags:
+  - defensive-tradecraft
+  - ioc-scanner
+  - webshell
+  contributor_name: darkquasar
+- repo_url: https://github.com/Sq00ky/SMB-Session-Spoofing
+  tags:
+  - defensive-tradecraft
+  - cyber-deception
+  - tactic-session-enum
+  contributor_name: darkquasar
+- repo_url: https://github.com/Shell-Company/QRExfil
+  tags:
+  - offensive-tradecraft
+  - security-tools
+  - dlp
+  - tactic-exfiltration
+  - technique-data-encoding
+  - qrcode
+  contributor_name: darkquasar
+- repo_url: https://github.com/nyxgeek/onedrive_user_enum
+  tags:
+  - offensive-tradecraft
+  - azure
+  - office365
+  - pentest
+  - pentesting
+  - osint
+  contributor_name: darkquasar
+- repo_url: https://github.com/projectdiscovery/uncover
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - osint
+  - recon
+  - cli
+  - bugbounty
+  contributor_name: darkquasar
+- repo_url: https://github.com/FalconForceTeam/FalconHound
+  tags:
+  - defensive-tradecraft
+  - active-directory
+  - bloodhound
+  contributor_name: darkquasar
+- repo_url: https://github.com/AykutSarac/jsoncrack.com
+  tags:
+  - defensive-tradecraft
+  - nextjs
+  - yaml
+  - data-visualization
+  - graph
+  - json
+  contributor_name: darkquasar
+- repo_url: https://github.com/cado-security/cloudgrep
+  tags:
+  - defensive-tradecraft
+  - azure
+  - dfir
+  - cloud
+  - aws-cloud
+  - cloud-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/mthcht/ThreatHunting-Keywords
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - dfir
+  - threat-intelligence
+  contributor_name: darkquasar
+- repo_url: https://github.com/LuemmelSec/Custom-BloodHound-Queries
+  tags:
+  - offensive-tradecraft
+  - bloodhound
+  contributor_name: darkquasar
+- repo_url: https://github.com/mbrg/power-pwn/wiki/Modules:-Install-a-backdoor
+  tags:
+  - offensive-tradecraft
+  - microsoft365
+  - hacking
+  - hacking-tool
+  - pentesting
+  - azure-cloud
+  contributor_name: darkquasar
+- repo_url: https://github.com/zer0condition/mhydeath
+  tags:
+  - offensive-tradecraft
+  - edr-evasion
+  contributor_name: darkquasar
+- repo_url: https://github.com/BushidoUK/Breach-Report-Collection
+  tags:
+  - defensive-tradecraft
+  - threat-intel
+  - intel-report
+  contributor_name: darkquasar
+- repo_url: https://github.com/t3l3machus/Villain
+  tags:
+  - offensive-tradecraft
+  - cybersecurity
+  - c2
+  - hacking
+  - hacking-tool
+  - pentest
+  contributor_name: darkquasar
+- repo_url: https://github.com/peasead/elastic-container
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - detection-lab
+  - lab-environment
+  contributor_name: darkquasar
+- repo_url: https://github.com/mxrch/GHunt
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - dfir
+  - osint
+  - recon
+  - email-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/dfir-dd/dfir-toolkit
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - dfir
+  - digital-forensics-incident-response
+  - forensic-analysis
+  - forensics-tools
+  contributor_name: darkquasar
+- repo_url: https://github.com/JLospinoso/gargoyle
+  tags:
+  - offensive-tradecraft
+  - defense-evasion
+  - security
+  - process-injection
+  - memory-forensics
+  - assembly
+  contributor_name: darkquasar
+- repo_url: https://github.com/ACE-Responder/RogueSliver
+  tags:
+  - defensive-tradecraft
+  - c2
+  - sliver-c2
+  contributor_name: darkquasar
+- repo_url: https://github.com/MrEmpy/Mantra
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - security
+  - hacking
+  - pentest
+  - tool
+  contributor_name: darkquasar
+- repo_url: https://github.com/0xthirteen/MoveKit
+  tags:
+  - offensive-tradecraft
+  - threat-hunting-ideas
+  - .net
+  - cobalt-strike
+  contributor_name: darkquasar
+- repo_url: https://github.com/wddadk/Offensive-OSINT-Tools
+  tags:
+  - defensive-tradecraft
+  - offensive-tradecraft
+  - hacking
+  - infosec
+  - pentest
+  - pentesting
+  contributor_name: darkquasar
+- repo_url: https://github.com/mvelazc0/msInvader
+  tags:
+  - threat-hunting
+  - offensive-tradecraft
+  - azure-ad
+  - o365
+  - adversary-simulation
+  - purple-team
+  contributor_name: darkquasar
+- repo_url: https://github.com/HavocFramework/Havoc
+  tags:
+  - offensive-tradecraft
+  - c2-framework
+  contributor_name: darkquasar
+- repo_url: https://github.com/danielmiessler/fabric
+  tags:
+  - defensive-tradecraft
+  - ai
+  - ai-llm
+  - ragintel
+  - augmentation
+  - flourishing
+  contributor_name: darkquasar
+- repo_url: https://github.com/Sam0x90/CB-Threat-Hunting
+  tags:
+  - defensive-tradecraft
+  - edr
+  - detection
+  contributor_name: darkquasar
+- repo_url: https://github.com/oobabooga/text-generation-webui
+  tags:
+  - offensive-tradecraft
+  - ai-llm
+  contributor_name: darkquasar
+- repo_url: https://github.com/center-for-threat-informed-defense/sensor-mappings-to-attack
+  tags:
+  - defensive-tradecraft
+  - cybersecurity
+  - ctid
+  - cyber-defense
+  - cyber-tools
+  - mitre-attack
+  contributor_name: darkquasar
+- repo_url: https://github.com/farhanashrafdev/90DaysOfCyberSecurity?tab=readme-ov-file
+  tags:
+  - cybersecurity
+  - cyber-training
+  - cyberwarrior-analyst-training-101
+  - communityexchange
+  - ethical-hacking
+  - hacktoberfest
+  contributor_name: darkquasar
+- repo_url: https://github.com/TrimarcJake/Locksmith
+  tags:
+  - defensive-tradecraft
+  - powershell-module
+  - powershell
+  - microsoft-entra
+  - active-directory
+  - active-directory-certificate-services
+  contributor_name: darkquasar
+- repo_url: https://github.com/naksyn/PythonMemoryModule
+  tags:
+  - offensive-tradecraft
+  - edr-evasion
+  - hacking
+  - python
+  - memory-forensics
+  - evasion
+  contributor_name: darkquasar
+- repo_url: https://github.com/naksyn/Pyramid
+  tags:
+  - offensive-tradecraft
+  - edr
+  - edr-evasion
+  - edr-testing
+  - hacking
+  - python
+  contributor_name: darkquasar
+- repo_url: https://github.com/fatiando/pooch
+  tags:
+  - python
+  - data-analytics
+  - ftp
+  - http
+  - python3
+  - scipy
+  contributor_name: darkquasar
+- repo_url: https://github.com/jackaduma/ThreatReportExtractor/blob/main/main.py
+  tags:
+  - security
+  - automation
+  - cybersecurity
+  - threat-intel
+  - threat-intelligence
+  - machine-learning
+  contributor_name: darkquasar
+- repo_url: https://github.com/tsale/EDR-Telemetry
+  tags:
+  - defensive-tradecraft
+  - edr
+  contributor_name: darkquasar
+- repo_url: https://github.com/CCob/ThreadlessInject
+  tags:
+  - offensive-tradecraft
+  - edr-evasion
+  - thread-injection
+  contributor_name: darkquasar
+- repo_url: https://github.com/MaorSabag/TrueSightKiller
+  tags:
+  - offensive-tradecraft
+  - edr-evasion
+  - tactic-loldrivers
+  contributor_name: darkquasar
+- repo_url: https://github.com/evild3ad/MemProcFS-Analyzer
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - incident-response
+  - live-response
+  - powershell
+  - memory-forensics
+  contributor_name: darkquasar
+- repo_url: https://gist.github.com/adamsvoboda/8e248c6b7fb812af5d04daba141c867e
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/alpkeskin/mosint
+  tags:
+  - defensive-tradecraft
+  - automation
+  - hacking
+  - pentest
+  - threat-intel
+  - osint
+  contributor_name: darkquasar
+- repo_url: https://github.com/mllamazares/STRIDE-vs-ASVS
+  tags:
+  - defensive-tradecraft
+  - security
+  - cybersecurity
+  - threat-intel
+  - threat-modelling
+  contributor_name: darkquasar
+- repo_url: https://github.com/fr0gger/Awesome-GPT-Agents
+  tags:
+  - defensive-tradecraft
+  - cybersecurity
+  - llm
+  - infosec
+  - threat-intel
+  - agents
+  contributor_name: darkquasar
+- repo_url: https://github.com/RoseSecurity-Research/WolfPack
+  tags:
+  - offensive-tradecraft
+  - cybersecurity
+  - c2
+  - ansible
+  - infrastructure-as-code
+  - packer
+  contributor_name: darkquasar
+- repo_url: https://github.com/D00Movenok/BounceBack
+  tags:
+  - offensive-tradecraft
+  - c2
+  - pentest
+  - pentesting
+  - redteam
+  contributor_name: darkquasar
+- repo_url: https://github.com/tclahr/uac
+  tags:
+  - defensive-tradecraft
+  - security
+  - dfir
+  - incident-response
+  contributor_name: darkquasar
+- repo_url: https://github.com/cocopollo/HunterM
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - mac-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/mnrkbys/fjta
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - python
+  - forensics
+  - linux
+  - forensic
+  contributor_name: darkquasar
+- repo_url: https://github.com/rabbitstack/fibratus
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/0xNinjaCyclone/EarlyCascade
+  tags:
+  - offensive-tradecraft
+  - process-injection
+  contributor_name: darkquasar
+- repo_url: https://github.com/curated-intel
+  tags:
+  - defensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/DS4SD/docling/tree/main
+  tags:
+  - defensive-tradecraft
+  - ai
+  - machine-learning
+  contributor_name: darkquasar
+- repo_url: https://github.com/Offensive-Panda/ProcessInjectionTechniques?tab=readme-ov-file
+  tags:
+  - offensive-tradecraft
+  - process-injection
+  contributor_name: darkquasar
+- repo_url: https://github.com/securityjoes/MasterParser
+  tags:
+  - defensive-tradecraft
+  - security
+  - automation
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/slincoln-aiq/DetectIQ
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - detection-engineering
+  - ai-llm
+  contributor_name: darkquasar
+- repo_url: https://github.com/jkerai1/SoftwareCertificates/tree/main/Bulk-IOC-CSVs
+  tags:
+  - defensive-tradecraft
+  - azure
+  - microsoft-mde
+  contributor_name: darkquasar
+- repo_url: https://github.com/CTI-Driven/Advanced-Threat-Hunting-KQL-General-Campaigns/blob/main/APT29-Midnight-Blizzard/APT29%20large-scale%20spear-phishing%20campaign%20using%20RDP%20files.md
+  tags:
+  - defensive-tradecraft
+  - ragintel
+  contributor_name: darkquasar
+- repo_url: https://github.com/BushidoUK/Russian-APT-Tool-Matrix
+  tags:
+  - defensive-tradecraft
+  - threat-intel
+  contributor_name: darkquasar
+- repo_url: https://github.com/AnacletoLAB/grape/tree/main?tab=readme-ov-file
+  tags:
+  - python
+  - machine-learning
+  - graph-thinking
+  - data-visualization
+  - graph
+  - high-performance
+  contributor_name: darkquasar
+- repo_url: https://github.com/grahamhelton/USP
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/BushidoUK/Ransomware-Tool-Matrix?tab=readme-ov-file
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - cybersecurity
+  - hacking
+  - threat-intelligence
+  - detection-engineering
+  contributor_name: darkquasar
+- repo_url: https://github.com/fox-it/cobaltstrike-beacon-data
+  tags:
+  - defensive-tradecraft
+  - python
+  - threat-intelligence
+  - dataset
+  - beacon
+  - cobaltstrike
+  contributor_name: darkquasar
+- repo_url: https://github.com/mhaskar/TokenBroker
+  tags:
+  - offensive-tradecraft
+  - token-compromise
+  contributor_name: darkquasar
+- repo_url: https://github.com/CrowdStrike/VirtualGHOST
+  tags:
+  - defensive-tradecraft
+  - vmware
+  - virtualization
+  contributor_name: darkquasar
+- repo_url: https://github.com/DCScoder/ESXiTri
+  tags:
+  - defensive-tradecraft
+  - dfir
+  - esxi
+  contributor_name: darkquasar
+- repo_url: https://github.com/0xNinjaCyclone/hellMaker
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/ocsf/ocsf-schema
+  tags:
+  - defensive-tradecraft
+  - siem
+  - data-schema
+  contributor_name: darkquasar
+- repo_url: https://github.com/sadreck/Codecepticon
+  tags:
+  - offensive-tradecraft
+  - edr-evasion
+  - payload-obfuscation
+  contributor_name: darkquasar
+- repo_url: https://github.com/PuravsPoint/DecipheringUAL
+  tags:
+  - microsoft365
+  - cybersecurity
+  - incident-response
+  - forensics
+  - azure-ad
+  - azure-cloud
+  contributor_name: darkquasar
+- repo_url: https://github.com/ali-ahsan-ali/TransferPatternGeneration
+  tags:
+  - data-science
+  contributor_name: darkquasar
+- repo_url: https://github.com/ozanunal0/viper
+  tags:
+  - defensive-tradecraft
+  - cybersecurity
+  - llm
+  - threat-intel
+  - ai
+  contributor_name: darkquasar
+- repo_url: https://github.com/acquiredsecurity/forensic-timeliner
+  tags:
+  - defensive-tradecraft
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/tylabs/quicksand
+  tags:
+  - defensive-tradecraft
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/oloruntolaallbert/MS-Attack-Range/tree/main
+  tags:
+  - defensive-tradecraft
+  - detection-engineering
+  contributor_name: darkquasar
+- repo_url: https://github.com/Yamato-Security/suzaku
+  tags:
+  - threat-hunting
+  - defensive-tradecraft
+  - azure
+  - security
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://gist.github.com/secdev02/bcff2200fa7c1df75794c943d78dabb3#file-canarytoken-windows-fake-file-system-L483
+  tags:
+  - defensive-tradecraft
+  - cyber-deception
+  contributor_name: darkquasar
+- repo_url: https://github.com/Xacone/BestEdrOfTheMarket
+  tags:
+  - threat-hunting
+  - offensive-tradecraft
+  - defense-evasion
+  - edr
+  - edr-evasion
+  - edr-testing
+  contributor_name: darkquasar
+- repo_url: https://github.com/mverschu/CVE-2025-33073
+  tags:
+  - ntlm
+  - offensive-tradecraft
+  - privilege-escalation
+  contributor_name: darkquasar
+- repo_url: https://github.com/silverhack/monkey365
+  tags:
+  - defensive-tradecraft
+  - azure
+  contributor_name: darkquasar
+- repo_url: https://github.com/TracecatHQ/tracecat
+  tags:
+  - security
+  - automation
+  - cybersecurity
+  contributor_name: darkquasar
+- repo_url: https://github.com/Hexastrike/Slasher
+  tags:
+  - defensive-tradecraft
+  - virustotal
+  contributor_name: darkquasar
+- repo_url: https://github.com/cudeso/tools/tree/master/qelp-ir-triage-esxi
+  tags:
+  - defensive-tradecraft
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/The-DFIR-Report/Suricata-Rules/blob/main/potential-impacket-wmiexec.py-activity.rules
+  tags:
+  - defensive-tradecraft
+  - suricata
+  - network-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/praetorian-inc/gato
+  tags:
+  - offensive-tradecraft
+  - cloud
+  - tools
+  contributor_name: darkquasar
+- repo_url: https://github.com/TryCatchHCF/Cloakify
+  tags:
+  - offensive-tradecraft
+  - threat-hunting-ideas
+  contributor_name: darkquasar
+- repo_url: https://github.com/rasta-mouse/SCMUACBypass
+  tags:
+  - offensive-tradecraft
+  - cobalt-strike
+  - kerberos
+  contributor_name: darkquasar
+- repo_url: https://github.com/0xHossam/Killer
+  tags:
+  - offensive-tradecraft
+  - defense-evasion
+  - red-team
+  contributor_name: darkquasar
+- repo_url: https://github.com/AndrewRathbun/DFIRMindMaps
+  tags:
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/MHaggis/sysmon-dfir
+  tags:
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/AndrewRathbun/DFIRArtifactMuseum
+  tags:
+  - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/dfirtrack/dfirtrack
+  tags:
+  - dfir
+  contributor_name: darkquasar

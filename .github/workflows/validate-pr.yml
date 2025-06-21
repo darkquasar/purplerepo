@@ -1,0 +1,134 @@
+name: Validate repo-list.yaml
+
+on:
+  pull_request:
+    paths:
+      - 'repo-list.yaml'
+  push:
+    branches: [main]
+    paths:
+      - 'repo-list.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for git diff analysis
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+      
+      - name: Install dependencies
+        run: uv sync --dev
+      
+      - name: Run pre-commit hooks
+        run: |
+          uv run pre-commit install
+          uv run pre-commit run --all-files
+      
+      - name: Determine git comparison range
+        id: git-range
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # For PRs, compare against the target branch
+            echo "old_sha=${{ github.event.pull_request.base.sha }}" >> $GITHUB_OUTPUT
+            echo "new_sha=${{ github.event.pull_request.head.sha }}" >> $GITHUB_OUTPUT
+            echo "context=PR from ${{ github.event.pull_request.head.ref }} to ${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
+          else
+            # For pushes to main, compare against previous commit
+            echo "old_sha=${{ github.event.before }}" >> $GITHUB_OUTPUT
+            echo "new_sha=${{ github.event.after }}" >> $GITHUB_OUTPUT
+            echo "context=Push to main" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Validate change limits and detect changes
+        id: validate-changes
+        run: |
+          echo "🔍 Validating changes for: ${{ steps.git-range.outputs.context }}"
+          echo "📊 Comparing: ${{ steps.git-range.outputs.old_sha }} → ${{ steps.git-range.outputs.new_sha }}"
+          
+          # Run validation with change limits enforced
+          uv run python .github/workflows/scripts/detect_repo_changes.py \
+            --old-sha "${{ steps.git-range.outputs.old_sha }}" \
+            --new-sha "${{ steps.git-range.outputs.new_sha }}" \
+            --enforce-limits
+      
+      - name: Comment on PR (if validation fails)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `## ❌ Validation Failed
+            
+            Your changes to \`repo-list.yaml\` failed validation. Please check the logs above for details.
+            
+            ### Common issues:
+            - **Too many changes**: Maximum 5 entries can be added/removed per PR
+            - **Invalid format**: Check YAML syntax and required fields
+            - **Duplicate URLs**: Each repository URL must be unique
+            - **Too many tags**: Maximum 6 tags per entry
+            - **Invalid tag format**: Use lowercase with hyphens (e.g., \`offensive-tradecraft\`)
+            - **Missing contributor**: \`contributor_name\` field is required
+            
+            ### How to fix:
+            1. Review the validation errors in the workflow logs
+            2. Fix the issues in your branch
+            3. Push the changes to update this PR
+            
+            ### Development setup:
+            \`\`\`bash
+            uv sync --dev
+            uv run pre-commit install
+            \`\`\`
+            
+            ### Test locally:
+            \`\`\`bash
+            uv run pre-commit run --all-files
+            \`\`\`
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+      
+      - name: Comment on PR (if validation passes)
+        if: success() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `## ✅ Validation Passed
+            
+            Your changes to \`repo-list.yaml\` have been validated successfully!
+            
+            ### What was checked:
+            - ✅ YAML syntax and structure
+            - ✅ Required fields present (\`repo_url\`, \`tags\`, \`contributor_name\`)
+            - ✅ Maximum 6 tags per entry
+            - ✅ No duplicate repository URLs
+            - ✅ Valid GitHub/Gist URL format
+            - ✅ Proper tag naming conventions
+            - ✅ Maximum 5 changes per PR
+            
+            Your PR is ready for review! 🚀
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });

@@ -188,7 +188,7 @@ class RepoChangeDetector:
         
         return filtered_new_repos, filtered_removed_repos
     
-    def detect_changes(self, old_sha: str, new_sha: str, file_path: str = "repo-list.yaml") -> List[Dict[str, Any]]:
+    def detect_changes(self, old_sha: str, new_sha: str, file_path: str = "repo-list.yaml", enforce_limits: bool = False) -> List[Dict[str, Any]]:
         """Main method to detect changes and return JSON payloads for new entries"""
         logger.info(f"Comparing {file_path} between {old_sha} and {new_sha}")
         
@@ -232,6 +232,16 @@ class RepoChangeDetector:
             logger.info("No repository entry changes found after consolidation and conflict resolution")
             return []
         
+        # Enforce change limits if requested (for PR/push validation)
+        if enforce_limits:
+            total_changes = len(consolidated_new_repos) + len(consolidated_removed_repos)
+            if total_changes > 5:
+                logger.error(f"Too many changes in single commit/PR: {total_changes} (maximum: 5)")
+                logger.error(f"  - New entries: {len(consolidated_new_repos)}")
+                logger.error(f"  - Removed entries: {len(consolidated_removed_repos)}")
+                logger.error("Please split your changes into smaller commits with max 5 changes each.")
+                raise ValueError(f"Exceeded maximum change limit: {total_changes} > 5")
+        
         # Convert to JSON payloads
         payloads = []
         
@@ -262,6 +272,7 @@ def main():
     parser.add_argument('--file-path', default='repo-list.yaml', help='Path to the YAML file to check')
     parser.add_argument('--repo-path', default='.', help='Path to the git repository')
     parser.add_argument('--output-file', help='Output file for JSON payloads')
+    parser.add_argument('--enforce-limits', action='store_true', help='Enforce maximum 5 changes per commit/PR')
     
     args = parser.parse_args()
     
@@ -272,7 +283,11 @@ def main():
     detector = RepoChangeDetector(args.repo_path)
     
     # Detect changes
-    payloads = detector.detect_changes(args.old_sha, args.new_sha, args.file_path)
+    try:
+        payloads = detector.detect_changes(args.old_sha, args.new_sha, args.file_path, enforce_limits=args.enforce_limits)
+    except ValueError as e:
+        logger.error(f"Validation failed: {e}")
+        sys.exit(1)
     
     if not payloads:
         logger.info("No changes detected or no new entries found")

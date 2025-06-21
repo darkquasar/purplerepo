@@ -1,0 +1,144 @@
+# Pre-commit configuration for repo-list.yaml validation
+# See https://pre-commit.com for more information
+
+repos:
+  # Built-in pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      # YAML syntax validation
+      - id: check-yaml
+        files: ^repo-list\.yaml$
+        args: [--allow-multiple-documents]
+      
+      # File formatting
+      - id: end-of-file-fixer
+        files: ^repo-list\.yaml$
+      
+      - id: trailing-whitespace
+        files: ^repo-list\.yaml$
+      
+      # Check for merge conflicts
+      - id: check-merge-conflict
+        files: ^repo-list\.yaml$
+
+  # Custom validation for repo-list.yaml business rules
+  - repo: local
+    hooks:
+      - id: validate-repo-list
+        name: Validate repo-list.yaml structure and rules
+        entry: python
+        language: system
+        files: ^repo-list\.yaml$
+        args:
+          - -c
+          - |
+            import sys
+            import yaml
+            import re
+            from urllib.parse import urlparse
+            
+            def validate_repo_list(file_path):
+                """Validate repo-list.yaml against business rules"""
+                errors = []
+                
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        data = yaml.safe_load(f)
+                except yaml.YAMLError as e:
+                    errors.append(f"YAML parsing error: {e}")
+                    return errors
+                
+                if not isinstance(data, dict) or 'repos' not in data:
+                    errors.append("File must contain a 'repos' key with a list of repositories")
+                    return errors
+                
+                repos = data['repos']
+                if not isinstance(repos, list):
+                    errors.append("'repos' must be a list")
+                    return errors
+                
+                seen_urls = set()
+                
+                for i, repo in enumerate(repos, 1):
+                    # Get repo_url for better error reporting
+                    repo_url = repo.get('repo_url', 'Unknown URL') if isinstance(repo, dict) else 'Unknown URL'
+                    line_prefix = f"Entry {i} ({repo_url})"
+                    
+                    # Check required fields
+                    if not isinstance(repo, dict):
+                        errors.append(f"{line_prefix}: Entry must be a dictionary")
+                        continue
+                    
+                    # Validate repo_url
+                    if not repo_url or repo_url == 'Unknown URL':
+                        errors.append(f"{line_prefix}: Missing required field 'repo_url'")
+                    elif not isinstance(repo_url, str):
+                        errors.append(f"{line_prefix}: 'repo_url' must be a string")
+                    else:
+                        # Check URL format
+                        try:
+                            parsed = urlparse(repo_url)
+                            if not (parsed.scheme in ['http', 'https'] and 
+                                   (parsed.netloc == 'github.com' or parsed.netloc == 'gist.github.com')):
+                                errors.append(f"{line_prefix}: 'repo_url' must be a valid GitHub or Gist URL")
+                        except Exception:
+                            errors.append(f"{line_prefix}: Invalid URL format in 'repo_url'")
+                        
+                        # Check for duplicates
+                        if repo_url in seen_urls:
+                            errors.append(f"{line_prefix}: Duplicate repo_url")
+                        else:
+                            seen_urls.add(repo_url)
+                    
+                    # Validate contributor_name
+                    contributor_name = repo.get('contributor_name')
+                    if not contributor_name:
+                        errors.append(f"{line_prefix}: Missing required field 'contributor_name'")
+                    elif not isinstance(contributor_name, str) or not contributor_name.strip():
+                        errors.append(f"{line_prefix}: 'contributor_name' must be a non-empty string")
+                    
+                    # Validate tags
+                    tags = repo.get('tags') or repo.get('initial_tags')  # Support legacy field
+                    if not tags:
+                        errors.append(f"{line_prefix}: Missing required field 'tags' (or 'initial_tags')")
+                    elif not isinstance(tags, list):
+                        errors.append(f"{line_prefix}: 'tags' must be a list")
+                    else:
+                        # Check tag count (max 6)
+                        if len(tags) > 6:
+                            errors.append(f"{line_prefix}: Too many tags ({len(tags)}), maximum is 6")
+                        
+                        # Check tag format - allow single words or hyphenated multi-words
+                        for tag in tags:
+                            if not isinstance(tag, str):
+                                errors.append(f"{line_prefix}: All tags must be strings, found: '{tag}'")
+                            elif not tag.strip():
+                                errors.append(f"{line_prefix}: Empty tag found")
+                            else:
+                                # Check if tag contains spaces (not allowed)
+                                if ' ' in tag:
+                                    errors.append(f"{line_prefix}: Tag '{tag}' contains spaces - use hyphens instead (e.g., 'machine-learning')")
+                                # Check if tag has proper format: single word OR hyphenated words OR starts with dot
+                                elif not re.match(r'^(\.?[a-z0-9]+(-[a-z0-9]+)*)$', tag):
+                                    errors.append(f"{line_prefix}: Tag '{tag}' must be lowercase alphanumeric, single words or hyphenated (e.g., 'python', 'machine-learning', '.net')")
+                
+                return errors
+            
+            # Main validation
+            if len(sys.argv) < 2:
+                print("Usage: python -c <script> <file_path>")
+                sys.exit(1)
+            
+            file_path = sys.argv[1]
+            errors = validate_repo_list(file_path)
+            
+            if errors:
+                print("VALIDATION FAILED for repo-list.yaml:")
+                for error in errors:
+                    print(f"  - {error}")
+                sys.exit(1)
+            else:
+                print("VALIDATION PASSED: repo-list.yaml is valid!")
+                sys.exit(0)
+        pass_filenames: true
