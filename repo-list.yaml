@@ -993,10 +993,6 @@ repos:
   - defense-evasion
   - red-team
   contributor_name: darkquasar
-- repo_url: https://github.com/AndrewRathbun/DFIRMindMaps
-  tags:
-    - dfir
-  contributor_name: darkquasar
 - repo_url: https://github.com/MHaggis/sysmon-dfir
   tags:
     - dfir
@@ -1008,12 +1004,30 @@ repos:
 - repo_url: https://github.com/thomasbenos1291/Custom-Velociraptor-Artifacts
   tags:
     - dfir
-  contributor_name: darkquasar
-- repo_url: https://github.com/dmikusa/access_log_parser
-  tags:
-    - dfir
+    - velociraptor
   contributor_name: darkquasar
 - repo_url: https://github.com/omerbenamram/evtx
   tags:
     - dfir
+    - rust
+    - evtx
+  contributor_name: darkquasar
+- repo_url: https://github.com/splunk/attack_range
+  tags:
+    - defensive-tradecraft
+    - offensive-tradecraft
+    - detection
+  contributor_name: darkquasar
+- repo_url: https://github.com/iknowjason/PurpleCloud
+  tags:
+    - tradecraft-tool
+    - defensive-tradecraft
+    - azure
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/secureworks/TokenMan
+  tags:
+    - threat-hunting
+    - active-defense
+    - offensive-tradecraft
   contributor_name: darkquasar
