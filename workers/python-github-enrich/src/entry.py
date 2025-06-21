@@ -59,7 +59,6 @@ async def fetch_github_repo_data(owner: str, repo: str, token: str) -> dict:
         console.log("Headers being sent:")
         console.log(f"User-Agent: {user_agent}")
         console.log(f"Accept: application/vnd.github+json")
-        console.log(f"Authorization: Bearer [REDACTED]")
         
         repo_response = await fetch(repo_url, 
             headers={
@@ -227,27 +226,27 @@ async def on_fetch(request: Request, env) -> Response:
             if env:
                 # Method 1: Direct attribute access
                 try:
-                    github_token = getattr(env, "GITHUB_PAT_PUBLIC_QUASAROPS", None)
+                    github_token = getattr(env, "GITHUB_PAT_PUBLIC", None)
                 except Exception:
                     pass
                 
                 # Method 2: Dictionary access
                 if not github_token:
                     try:
-                        github_token = env["GITHUB_PAT_PUBLIC_QUASAROPS"]
+                        github_token = env["GITHUB_PAT_PUBLIC"]
                     except (KeyError, TypeError):
                         pass
                 
                 # Method 3: .get() method if available
                 if not github_token and hasattr(env, 'get'):
                     try:
-                        github_token = env.get("GITHUB_PAT_PUBLIC_QUASAROPS")
+                        github_token = env.get("GITHUB_PAT_PUBLIC")
                     except Exception:
                         pass
             
             # Fallback to os.environ
             if not github_token:
-                github_token = os.environ.get("GITHUB_PAT_PUBLIC_QUASAROPS")
+                github_token = os.environ.get("GITHUB_PAT_PUBLIC")
                 
         except Exception as e:
             console.log(f"Environment access error: {e}")
@@ -261,7 +260,7 @@ async def on_fetch(request: Request, env) -> Response:
             console.log("GitHub token not found in environment")
             return Response(
                 json.dumps({
-                    "error": "GITHUB_PAT_PUBLIC_QUASAROPS environment variable not configured"
+                    "error": "GITHUB_PAT_PUBLIC environment variable not configured"
                 }),
                 status=500,
                 headers={"Content-Type": "application/json"}

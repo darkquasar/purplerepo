@@ -1,15 +1,8 @@
 repos:
   - repo_url: https://github.com/secureworks/TokenMan
-    initial_tags:
+    tags:
       - github-repo
       - offensive-tradecraft
-    contributor_name: darkquasar
-  - repo_url: https://github.com/splunk/attack_range
-    initial_tags:
-      - github-repo
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - detection
     contributor_name: darkquasar
   - repo_url: https://github.com/Ignitetechnologies/Nmap-For-Pentester
     tags:
@@ -47,12 +40,6 @@ repos:
       - offensive-tradecraft
       - security
       - cloud
-      - aws
-      - golang
-      - cloud-security
-      - penetration-testing-tools
-      - cloudfox
-      - cloud-attacks
     contributor_name: darkquasar
   - repo_url: https://github.com/RhinoSecurityLabs/cloudgoat
     tags:
@@ -372,21 +359,6 @@ repos:
       - threat-hunting
       - dfir
       - cloud-forensics
-    contributor_name: darkquasar
-  - repo_url: https://github.com/splunk/attack_range
-    tags:
-      - github-repo
-      - defensive-tradecraft
-      - offensive-tradecraft
-      - detection
-      - adversary
-      - purple-team
-      - splunk
-      - lab
-      - attack-simulation
-      - attack-range
-      - simulation
-      - simulations
     contributor_name: darkquasar
   - repo_url: https://github.com/jatrost/awesome-detection-rules
     tags:
@@ -753,64 +725,13 @@ repos:
       - aws-cloud
       - cloud-forensics
     contributor_name: darkquasar
-  - repo_url: https://github.com/iknowjason/PurpleCloud
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-      - dfir
-      - pentest
-      - dfir-automation
-      - siem
-      - azure-ad
-      - azure-cloud
-      - microsoft-entra
-      - azure-lab
-      - purpleteam
-    contributor_name: darkquasar
-  - repo_url: https://github.com/iknowjason/PurpleCloud
-    tags:
-      - github-repo
-      - tradecraft-tool
-      - defensive-tradecraft
-      - azure
-      - dfir
-      - pentest
-      - dfir-automation
-      - siem
-      - azure-ad
-      - azure-cloud
-      - microsoft-entra
-      - azure-lab
-      - purpleteam
-    contributor_name: darkquasar
   - repo_url: https://github.com/mthcht/ThreatHunting-Keywords
     tags:
       - github-repo
       - threat-hunting
-      - tradecraft-tool
       - defensive-tradecraft
       - dfir
-      - incident-response
-      - threat-hunting-ideas
       - threat-intelligence
-      - detection-engineering
-      - forensic
-      - blueteam
-      - soc
-      - iocs
-      - siem
-      - redteam
-      - awesome-list
-      - elk-stack
-      - endpoint-security
-      - hacktools
-      - offensive-scripts
-      - offensive-security
-      - splunk
-      - threathunting
-      - yara-rules
     contributor_name: darkquasar
   - repo_url: https://github.com/LuemmelSec/Custom-BloodHound-Queries
     tags:
@@ -1593,4 +1514,20 @@ repos:
       - offensive-tradecraft
       - defense-evasion
       - red-team
+    contributor_name: darkquasar
+  - repo_url: https://github.com/AndrewRathbun/DFIRMindMaps
+    tags:
+      - dfir
+    contributor_name: darkquasar
+  - repo_url: https://github.com/MHaggis/sysmon-dfir
+    tags:
+      - dfir
+    contributor_name: darkquasar
+  - repo_url: https://github.com/AndrewRathbun/DFIRArtifactMuseum
+    tags:
+      - dfir
+    contributor_name: darkquasar
+  - repo_url: https://github.com/dfirtrack/dfirtrack
+    tags:
+      - dfir
     contributor_name: darkquasar

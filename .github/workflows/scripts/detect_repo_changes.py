@@ -29,7 +29,6 @@ except ImportError:
 class RepoEntry:
     """Represents a repository entry from repo-list.yaml"""
     repo_url: str
-    initial_tags: Optional[List[str]] = None
     tags: Optional[List[str]] = None
     contributor_name: str = ""
     
@@ -41,10 +40,7 @@ class RepoEntry:
             "action": action
         }
         
-        # Use initial_tags if available, otherwise use tags
-        if self.initial_tags:
-            result["initial_tags"] = self.initial_tags
-        elif self.tags:
+        if self.tags:
             result["tags"] = self.tags
             
         return result
@@ -93,10 +89,16 @@ class RepoChangeDetector:
             
             repo_entries = []
             for repo in repos:
+                # Handle legacy initial_tags by merging with tags
+                tags = repo.get('tags', []) or []
+                initial_tags = repo.get('initial_tags', []) or []
+                
+                # Merge and deduplicate tags
+                all_tags = list(set(tags + initial_tags)) if (tags or initial_tags) else None
+                
                 entry = RepoEntry(
                     repo_url=repo.get('repo_url', ''),
-                    initial_tags=repo.get('initial_tags'),
-                    tags=repo.get('tags'),
+                    tags=all_tags,
                     contributor_name=repo.get('contributor_name', '')
                 )
                 repo_entries.append(entry)
@@ -118,6 +120,73 @@ class RepoChangeDetector:
         new_urls = {entry.repo_url for entry in new_entries}
         removed_repos = [entry for entry in old_entries if entry.repo_url not in new_urls]
         return removed_repos
+    
+    def consolidate_entries_by_url(self, entries: List[RepoEntry]) -> List[RepoEntry]:
+        """Consolidate multiple entries with same URL into single entries with merged data"""
+        if not entries:
+            return []
+        
+        # Group entries by URL
+        url_groups = {}
+        for entry in entries:
+            if entry.repo_url not in url_groups:
+                url_groups[entry.repo_url] = []
+            url_groups[entry.repo_url].append(entry)
+        
+        consolidated = []
+        for repo_url, group in url_groups.items():
+            if len(group) == 1:
+                # Single entry, no consolidation needed
+                consolidated.append(group[0])
+            else:
+                # Multiple entries for same URL, consolidate them
+                logger.info(f"Consolidating {len(group)} entries for URL: {repo_url}")
+                
+                # Collect all contributors
+                contributors = [entry.contributor_name for entry in group if entry.contributor_name]
+                unique_contributors = list(dict.fromkeys(contributors))  # Preserve order, remove duplicates
+                consolidated_contributor = ", ".join(unique_contributors)
+                
+                # Collect and merge all tags
+                all_tags = []
+                for entry in group:
+                    if entry.tags:
+                        all_tags.extend(entry.tags)
+                
+                # Deduplicate tags while preserving order
+                unique_tags = list(dict.fromkeys(all_tags)) if all_tags else None
+                
+                # Create consolidated entry
+                consolidated_entry = RepoEntry(
+                    repo_url=repo_url,
+                    tags=unique_tags,
+                    contributor_name=consolidated_contributor
+                )
+                consolidated.append(consolidated_entry)
+                
+                logger.info(f"  Consolidated contributors: {consolidated_contributor}")
+                logger.info(f"  Consolidated tags: {unique_tags}")
+        
+        return consolidated
+    
+    def detect_action_conflicts(self, new_repos: List[RepoEntry], removed_repos: List[RepoEntry]) -> tuple[List[RepoEntry], List[RepoEntry]]:
+        """Detect URLs that appear in both add and remove lists, return filtered lists"""
+        new_urls = {entry.repo_url for entry in new_repos}
+        removed_urls = {entry.repo_url for entry in removed_repos}
+        
+        # Find conflicting URLs
+        conflicting_urls = new_urls.intersection(removed_urls)
+        
+        if conflicting_urls:
+            logger.warning(f"Found {len(conflicting_urls)} URL(s) with conflicting actions (both add and remove):")
+            for url in conflicting_urls:
+                logger.warning(f"  Conflicting URL: {url} - Skipping this URL from all actions")
+        
+        # Filter out conflicting URLs from both lists
+        filtered_new_repos = [entry for entry in new_repos if entry.repo_url not in conflicting_urls]
+        filtered_removed_repos = [entry for entry in removed_repos if entry.repo_url not in conflicting_urls]
+        
+        return filtered_new_repos, filtered_removed_repos
     
     def detect_changes(self, old_sha: str, new_sha: str, file_path: str = "repo-list.yaml") -> List[Dict[str, Any]]:
         """Main method to detect changes and return JSON payloads for new entries"""
@@ -150,21 +219,34 @@ class RepoChangeDetector:
             logger.info("No repository entry changes found")
             return []
         
+        logger.info(f"Found {len(new_repos)} new entries and {len(removed_repos)} removed entries before consolidation")
+        
+        # Check for action conflicts (URLs that appear in both add and remove)
+        new_repos, removed_repos = self.detect_action_conflicts(new_repos, removed_repos)
+        
+        # Consolidate entries by URL to handle duplicates
+        consolidated_new_repos = self.consolidate_entries_by_url(new_repos)
+        consolidated_removed_repos = self.consolidate_entries_by_url(removed_repos)
+        
+        if not consolidated_new_repos and not consolidated_removed_repos:
+            logger.info("No repository entry changes found after consolidation and conflict resolution")
+            return []
+        
         # Convert to JSON payloads
         payloads = []
         
         # Handle new entries
-        if new_repos:
-            logger.info(f"Found {len(new_repos)} new repository entries:")
-            for repo in new_repos:
+        if consolidated_new_repos:
+            logger.info(f"Processing {len(consolidated_new_repos)} consolidated new repository entries:")
+            for repo in consolidated_new_repos:
                 payload = repo.to_dict(action="add")
                 payloads.append(payload)
                 logger.info(f"  + {repo.repo_url} (contributor: {repo.contributor_name})")
         
         # Handle removed entries
-        if removed_repos:
-            logger.info(f"Found {len(removed_repos)} removed repository entries:")
-            for repo in removed_repos:
+        if consolidated_removed_repos:
+            logger.info(f"Processing {len(consolidated_removed_repos)} consolidated removed repository entries:")
+            for repo in consolidated_removed_repos:
                 payload = repo.to_dict(action="remove")
                 payloads.append(payload)
                 logger.info(f"  - {repo.repo_url} (contributor: {repo.contributor_name})")

@@ -4,9 +4,14 @@ Test script for the repo change detector
 """
 
 import os
+import sys
 import tempfile
 import yaml
-from .detect_repo_changes import RepoChangeDetector, RepoEntry
+
+# Add the current directory to Python path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from detect_repo_changes import RepoChangeDetector, RepoEntry
 
 
 def create_test_yaml(repos_data):
@@ -22,7 +27,7 @@ def test_find_changes():
     old_entries = [
         RepoEntry(
             repo_url="https://github.com/old/repo1",
-            initial_tags=["tag1", "tag2"],
+            tags=["tag1", "tag2"],
             contributor_name="contributor1"
         ),
         RepoEntry(
@@ -41,7 +46,7 @@ def test_find_changes():
     new_entries = [
         RepoEntry(
             repo_url="https://github.com/old/repo1",
-            initial_tags=["tag1", "tag2"],
+            tags=["tag1", "tag2"],
             contributor_name="contributor1"
         ),
         # repo2 is kept, repo_to_remove is removed
@@ -53,7 +58,7 @@ def test_find_changes():
         # New entries added
         RepoEntry(
             repo_url="https://github.com/new/repo3",
-            initial_tags=["new-tag1", "new-tag2"],
+            tags=["new-tag1", "new-tag2"],
             contributor_name="new-contributor"
         ),
         RepoEntry(
@@ -115,6 +120,13 @@ repos:
       - tag3
       - tag4
     contributor_name: another-contributor
+  - repo_url: https://github.com/test/repo3
+    initial_tags:
+      - legacy-tag1
+    tags:
+      - new-tag1
+      - legacy-tag1
+    contributor_name: mixed-contributor
 """
     
     detector = RepoChangeDetector()
@@ -123,13 +135,122 @@ repos:
     print(f"Parsed {len(entries)} entries:")
     for entry in entries:
         print(f"  - {entry.repo_url}")
-        print(f"    Tags: {entry.initial_tags or entry.tags}")
+        print(f"    Tags: {entry.tags}")
         print(f"    Contributor: {entry.contributor_name}")
     
-    assert len(entries) == 2
+    assert len(entries) == 3
     assert entries[0].repo_url == "https://github.com/test/repo1"
-    assert entries[0].initial_tags == ["tag1", "tag2"]
-    assert entries[1].tags == ["tag3", "tag4"]
+    assert set(entries[0].tags) == {"tag1", "tag2"}  # Should merge initial_tags
+    assert entries[1].repo_url == "https://github.com/test/repo2"
+    assert set(entries[1].tags) == {"tag3", "tag4"}  # Regular tags
+    assert entries[2].repo_url == "https://github.com/test/repo3"
+    assert set(entries[2].tags) == {"legacy-tag1", "new-tag1"}  # Should merge and deduplicate
+    
+    print("✅ Test passed!")
+
+
+def test_consolidation():
+    """Test URL consolidation functionality"""
+    print("\nTesting URL consolidation...")
+    
+    # Create entries with duplicate URLs
+    entries = [
+        RepoEntry(
+            repo_url="https://github.com/duplicate/repo",
+            tags=["tag1", "tag2"],
+            contributor_name="contributor1"
+        ),
+        RepoEntry(
+            repo_url="https://github.com/duplicate/repo",
+            tags=["tag2", "tag3"],  # tag2 is duplicate, should be deduplicated
+            contributor_name="contributor2"
+        ),
+        RepoEntry(
+            repo_url="https://github.com/unique/repo",
+            tags=["unique-tag"],
+            contributor_name="unique-contributor"
+        ),
+        RepoEntry(
+            repo_url="https://github.com/duplicate/repo",
+            tags=["tag4"],
+            contributor_name="contributor3"
+        )
+    ]
+    
+    detector = RepoChangeDetector()
+    consolidated = detector.consolidate_entries_by_url(entries)
+    
+    print(f"Consolidated {len(entries)} entries into {len(consolidated)} entries:")
+    for entry in consolidated:
+        print(f"  - {entry.repo_url}")
+        print(f"    Contributors: {entry.contributor_name}")
+        print(f"    Tags: {entry.tags}")
+    
+    # Assertions
+    assert len(consolidated) == 2  # Should have 2 unique URLs
+    
+    # Find the consolidated duplicate entry
+    duplicate_entry = next(e for e in consolidated if e.repo_url == "https://github.com/duplicate/repo")
+    unique_entry = next(e for e in consolidated if e.repo_url == "https://github.com/unique/repo")
+    
+    # Check consolidated contributors
+    assert duplicate_entry.contributor_name == "contributor1, contributor2, contributor3"
+    assert unique_entry.contributor_name == "unique-contributor"
+    
+    # Check consolidated tags (should be deduplicated)
+    assert set(duplicate_entry.tags) == {"tag1", "tag2", "tag3", "tag4"}
+    assert unique_entry.tags == ["unique-tag"]
+    
+    print("✅ Test passed!")
+
+
+def test_conflict_detection():
+    """Test action conflict detection"""
+    print("\nTesting conflict detection...")
+    
+    # Create entries that conflict (same URL in both add and remove)
+    new_repos = [
+        RepoEntry(
+            repo_url="https://github.com/conflict/repo",
+            tags=["new-tag"],
+            contributor_name="new-contributor"
+        ),
+        RepoEntry(
+            repo_url="https://github.com/safe/repo",
+            tags=["safe-tag"],
+            contributor_name="safe-contributor"
+        )
+    ]
+    
+    removed_repos = [
+        RepoEntry(
+            repo_url="https://github.com/conflict/repo",
+            tags=["old-tag"],
+            contributor_name="old-contributor"
+        ),
+        RepoEntry(
+            repo_url="https://github.com/other/repo",
+            tags=["other-tag"],
+            contributor_name="other-contributor"
+        )
+    ]
+    
+    detector = RepoChangeDetector()
+    filtered_new, filtered_removed = detector.detect_action_conflicts(new_repos, removed_repos)
+    
+    print(f"Filtered new repos: {len(filtered_new)}")
+    for repo in filtered_new:
+        print(f"  + {repo.repo_url}")
+    
+    print(f"Filtered removed repos: {len(filtered_removed)}")
+    for repo in filtered_removed:
+        print(f"  - {repo.repo_url}")
+    
+    # Assertions
+    assert len(filtered_new) == 1  # Should remove the conflicting URL
+    assert len(filtered_removed) == 1  # Should remove the conflicting URL
+    assert filtered_new[0].repo_url == "https://github.com/safe/repo"
+    assert filtered_removed[0].repo_url == "https://github.com/other/repo"
     
     print("✅ Test passed!")
 
@@ -140,6 +261,8 @@ if __name__ == "__main__":
     try:
         test_yaml_parsing()
         test_find_changes()
+        test_consolidation()
+        test_conflict_detection()
         
         print("\n🎉 All tests passed!")
         print("\nTo test with real git data, ensure you're in a git repository with the target file.")

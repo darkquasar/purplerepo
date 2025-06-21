@@ -56,7 +56,7 @@ export class GitHubReadmeService {
       const repo = pathParts[1];
       
       // Get GitHub PAT from environment
-      const githubToken = this.env?.GITHUB_PAT_PUBLIC_QUASAROPS;
+      const githubToken = this.env?.GITHUB_PAT_PUBLIC;
       if (!githubToken) {
         throw new Error('GitHub PAT not found in environment variables');
       }

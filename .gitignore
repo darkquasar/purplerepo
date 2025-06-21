@@ -161,3 +161,87 @@ Icon?
 .directory
 .Trash-*
 .nfs*
+
+### Python specific ###
+
+Okay, here's a comprehensive .gitignore for Python projects, including __pycache__ and other common files/directories you'd want to ignore.
+Code snippet
+
+# Byte-code files
+*.pyc
+__pycache__/
+*.pyd
+*.pyo
+*.egg-info/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+venv/
+env/
+.venv/
+
+# Specific to Windows OS
+# Covers files created by some text editors/IDEs on Windows
+thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Specific to macOS
+.DS_Store
+.Trashes
+.Spotlight-V100
+.TemporaryItems
+__MACOSX/
+
+# PyCharm
+.idea/
+*.iml
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Coverage reports (e.g., from pytest-cov)
+.coverage
+.coverage.*
+htmlcov/
+.nox/
+
+# MyPy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
+
+# ruff
+.ruff_cache/
+
+# black
+.black/
+
+# Bandit
+.bandit/
+
+# pre-commit
+# pre-commit stores its hook environments in a cache directory
+# This is usually in ~/.cache/pre-commit or XDG_CACHE_HOME/pre-commit
+# But sometimes can be locally, so it's good to include it.
+# The exact path can vary, but these are common
+.pre-commit/
+
+# Docs
+docs/_build/
+
+# Other temporary files
+*.swp
+*.bak
+*.log
+*.sqlite3
+*.db
