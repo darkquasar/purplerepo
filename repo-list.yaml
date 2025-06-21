@@ -993,3 +993,27 @@ repos:
   - defense-evasion
   - red-team
   contributor_name: darkquasar
+- repo_url: https://github.com/AndrewRathbun/DFIRMindMaps
+  tags:
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/MHaggis/sysmon-dfir
+  tags:
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/AndrewRathbun/DFIRArtifactMuseum
+  tags:
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/thomasbenos1291/Custom-Velociraptor-Artifacts
+  tags:
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/dmikusa/access_log_parser
+  tags:
+    - dfir
+  contributor_name: darkquasar
+- repo_url: https://github.com/omerbenamram/evtx
+  tags:
+    - dfir
+  contributor_name: darkquasar
