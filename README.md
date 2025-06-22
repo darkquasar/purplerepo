@@ -4,6 +4,8 @@ Introducing PurpleRepo, a curated list of repositories for offensive and defensi
 
 [https://hunt.quasarops.com](https://hunt.quasarops.com)
 
+![Demo GIF](resources/PurpleRepo.gif)
+
 You know how tedious it is to find that one awesome GitHub Project that exploited vulnerability XYZ, or allowed you to collect DFIR data for a new artifact, or a package that orchestrates a boring task specific to a technology or platform. 😓
 
 It's hard to keep track of it all, even when encapsulated in "awesome" style repos. 🤯
