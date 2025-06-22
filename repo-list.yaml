@@ -1025,9 +1025,3 @@ repos:
     - active-defense
     - offensive-tradecraft
   contributor_name: darkquasar
-- repo_url: https://github.com/omerbenamram/evtx
-  tags:
-    - dfir
-    - rust
-    - evtx
-  contributor_name: darkquasar
