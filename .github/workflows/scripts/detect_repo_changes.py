@@ -235,12 +235,12 @@ class RepoChangeDetector:
         # Enforce change limits if requested (for PR/push validation)
         if enforce_limits:
             total_changes = len(consolidated_new_repos) + len(consolidated_removed_repos)
-            if total_changes > 5:
-                logger.error(f"Too many changes in single commit/PR: {total_changes} (maximum: 5)")
+            if total_changes > 15:
+                logger.error(f"Too many changes in single commit/PR: {total_changes} (maximum: 15)")
                 logger.error(f"  - New entries: {len(consolidated_new_repos)}")
                 logger.error(f"  - Removed entries: {len(consolidated_removed_repos)}")
-                logger.error("Please split your changes into smaller commits with max 5 changes each.")
-                raise ValueError(f"Exceeded maximum change limit: {total_changes} > 5")
+                logger.error("Please split your changes into smaller commits with max 15 changes each.")
+                raise ValueError(f"Exceeded maximum change limit: {total_changes} > 15")
         
         # Convert to JSON payloads
         payloads = []
@@ -272,7 +272,7 @@ def main():
     parser.add_argument('--file-path', default='repo-list.yaml', help='Path to the YAML file to check')
     parser.add_argument('--repo-path', default='.', help='Path to the git repository')
     parser.add_argument('--output-file', help='Output file for JSON payloads')
-    parser.add_argument('--enforce-limits', action='store_true', help='Enforce maximum 5 changes per commit/PR')
+    parser.add_argument('--enforce-limits', action='store_true', help='Enforce maximum 15 changes per commit/PR')
     
     args = parser.parse_args()
     

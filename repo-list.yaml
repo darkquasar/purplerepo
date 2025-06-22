@@ -1006,12 +1006,6 @@ repos:
     - dfir
     - velociraptor
   contributor_name: darkquasar
-- repo_url: https://github.com/omerbenamram/evtx
-  tags:
-    - dfir
-    - rust
-    - evtx
-  contributor_name: darkquasar
 - repo_url: https://github.com/splunk/attack_range
   tags:
     - defensive-tradecraft
@@ -1030,4 +1024,10 @@ repos:
     - threat-hunting
     - active-defense
     - offensive-tradecraft
+  contributor_name: darkquasar
+- repo_url: https://github.com/omerbenamram/evtx
+  tags:
+    - dfir
+    - rust
+    - evtx
   contributor_name: darkquasar

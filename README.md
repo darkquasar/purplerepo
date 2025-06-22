@@ -76,12 +76,12 @@ Your contributions must follow these rules (automatically enforced):
 - ✅ **`contributor_name`**: Your GitHub username (required)
 
 #### **Tag Guidelines**
-- ✅ **Format**: Lowercase with hyphens (e.g., `offensive-tradecraft`)
-- ✅ **Count**: Maximum 6 tags per repository
-- ✅ **Examples**: `github-repo`, `defensive-tradecraft`, `malware-analysis`, `cloud-security`
+- ✅ **Format**: Single word or phrase in lowercase with hyphens (e.g., `offensive-tradecraft`)
+- ✅ **Count**: Maximum 6 tags per repository (these represent your OWN tags, not the repository "topics", the topics are added later by the automation)
+- ✅ **Examples**: `.net`, `pentesting`, `defensive-tradecraft`, `malware-analysis`, `cloud-security`
 
 #### **Change Limits**
-- ✅ **Maximum 5 repositories** can be added/removed per Pull Request
+- ✅ **Maximum 15 repositories** can be added/removed per Pull Request
 - ✅ **No duplicate URLs** allowed
 - ✅ **Valid YAML syntax** required
 
@@ -296,19 +296,20 @@ Or:
 
 ### Supported YAML Structure
 
-The script handles both `initial_tags` and `tags` fields:
+The script handles these fields:
 
 ```yaml
 repos:
   - repo_url: https://github.com/example/repo1
-    initial_tags:
-      - github-repo
+    tags:
+      - pentesting
       - security
     contributor_name: contributor1
     
   - repo_url: https://github.com/example/repo2
     tags:
-      - github-repo
+      - defensive-tradecraft
+      - offensive-tradecraft
       - tools
     contributor_name: contributor2
 ```
@@ -320,7 +321,7 @@ Each new repository entry becomes a separate JSON payload:
 ```json
 {
   "repo_url": "https://github.com/example/repo",
-  "initial_tags": ["github-repo", "security"],
+  "tags": ["github-repo", "security"],
   "contributor_name": "contributor_name"
 }
 ```

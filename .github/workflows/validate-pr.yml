@@ -74,7 +74,7 @@ jobs:
             Your changes to \`repo-list.yaml\` failed validation. Please check the logs above for details.
             
             ### Common issues:
-            - **Too many changes**: Maximum 5 entries can be added/removed per PR
+            - **Too many changes**: Maximum 15 entries can be added/removed per PR
             - **Invalid format**: Check YAML syntax and required fields
             - **Duplicate URLs**: Each repository URL must be unique
             - **Too many tags**: Maximum 6 tags per entry
@@ -121,7 +121,7 @@ jobs:
             - ✅ No duplicate repository URLs
             - ✅ Valid GitHub/Gist URL format
             - ✅ Proper tag naming conventions
-            - ✅ Maximum 5 changes per PR
+            - ✅ Maximum 15 changes per PR
             
             Your PR is ready for review! 🚀
             `;
