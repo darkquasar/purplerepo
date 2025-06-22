@@ -26,6 +26,15 @@ The API will be made available soon so it can be integrated into automation or a
 
 This repository hosts the curated list of cybersecurity-related GitHub projects (`repo-list.yaml`) that powers the PurpleRepo application. Your contributions here directly enhance the data available through `hunt.quasarops.com`.
 
+## What you will find here
+
+### Working Examples of a Python and a Typescript Cloudflare Worker to fetch and summarise GitHub files.
+
+Inside the `workers` folder you will find two example workers, one that exemplifies how to fetch metadata from GitHub Repos using a Cloudflare Python Worker, and another one that encapsulates a file upload and summarisation workflow with an included Swagger API. **Note**: These workers resemble the ones in production but are not the ones directly employed by PurpleRepo.
+
+### The main PurpleRepo YAML File
+The file called `repo-list.yaml` contains the list of repos displayed by the live PurpleRepo, a series of github actions and a cloudflare worker help automate the ingestion of changes to this file. 
+
 ## Contributing to PurpleRepo
 
 We welcome contributions to expand and improve our curated list of cybersecurity repositories! 🎉
