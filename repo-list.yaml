@@ -1032,3 +1032,15 @@ repos:
   - elk
   - elasticsearch
   contributor_name: darkquasar
+- repo_url: https://github.com/digital-defense-institute/openrelik-pipeline
+  tags:
+  - dfir
+  - pipeline
+  - digital-forensics
+  contributor_name: darkquasar
+- repo_url: https://github.com/msdirtbag/MDEAutomator
+  tags:
+  - dfir
+  - mde
+  - automation
+  contributor_name: darkquasar
