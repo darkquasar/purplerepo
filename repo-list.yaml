@@ -1025,3 +1025,16 @@ repos:
     - active-defense
     - offensive-tradecraft
   contributor_name: darkquasar
+- repo_url: https://github.com/dfirvault/CSV2ELK
+  tags:
+  - dfir
+  - csv
+  - elk
+  - elasticsearch
+  contributor_name: darkquasar
+- repo_url: https://github.com/msdirtbag/MDEAutomator
+  tags:
+  - dfir
+  - mde
+  - automation
+  contributor_name: darkquasar
