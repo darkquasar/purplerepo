@@ -843,6 +843,10 @@ repos:
   - threat-intelligence
   - detection-engineering
   contributor_name: darkquasar
+- repo_url: https://github.com/0xNinjaCyclone/hellMaker
+  tags:
+  - offensive-tradecraft
+  contributor_name: darkquasar
 - repo_url: https://github.com/fox-it/cobaltstrike-beacon-data
   tags:
   - defensive-tradecraft
@@ -868,10 +872,6 @@ repos:
   - defensive-tradecraft
   - dfir
   - esxi
-  contributor_name: darkquasar
-- repo_url: https://github.com/0xNinjaCyclone/hellMaker
-  tags:
-  - offensive-tradecraft
   contributor_name: darkquasar
 - repo_url: https://github.com/ocsf/ocsf-schema
   tags:
@@ -1051,3 +1051,9 @@ repos:
   - velociraptor
   - threat-hunting
   contributor_name: mgreen27
+- repo_url: https://github.com/MHaggis/ASRGEN
+  tags:
+  - mde
+  - microsoft-defender
+  - asr
+  contributor_name: darkquasar
