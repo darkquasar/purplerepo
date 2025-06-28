@@ -2,16 +2,18 @@ name: Validate repo-list.yaml
 
 on:
   pull_request:
+    branches: [main, dev]
     paths:
       - 'repo-list.yaml'
   push:
-    branches: [main]
+    branches: [main, dev]
     paths:
       - 'repo-list.yaml'
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    environment: ${{ (github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main') || (github.event_name == 'push' && github.ref == 'refs/heads/main') && 'prod' || 'dev' }}
     
     steps:
       - name: Checkout repository
@@ -46,10 +48,10 @@ jobs:
             echo "new_sha=${{ github.event.pull_request.head.sha }}" >> $GITHUB_OUTPUT
             echo "context=PR from ${{ github.event.pull_request.head.ref }} to ${{ github.event.pull_request.base.ref }}" >> $GITHUB_OUTPUT
           else
-            # For pushes to main, compare against previous commit
+            # For pushes to main or dev, compare against previous commit
             echo "old_sha=${{ github.event.before }}" >> $GITHUB_OUTPUT
             echo "new_sha=${{ github.event.after }}" >> $GITHUB_OUTPUT
-            echo "context=Push to main" >> $GITHUB_OUTPUT
+            echo "context=Push to ${{ github.ref_name }}" >> $GITHUB_OUTPUT
           fi
       
       - name: Validate change limits and detect changes
