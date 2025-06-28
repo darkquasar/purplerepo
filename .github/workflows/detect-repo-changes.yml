@@ -2,13 +2,13 @@ name: Detect Repository Changes
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
     paths: [ 'repo-list.yaml' ]
 
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     
     steps:
     - name: Checkout repository
