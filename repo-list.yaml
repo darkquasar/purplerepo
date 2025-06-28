@@ -1057,3 +1057,10 @@ repos:
   - microsoft-defender
   - asr
   contributor_name: darkquasar
+- repo_url: https://github.com/VirusTotal/yara-x
+  tags:
+  - yara
+  - malware-analysis
+  - threat-hunting
+  - rust
+  contributor_name: darkquasar

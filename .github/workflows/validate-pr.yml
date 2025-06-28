@@ -6,7 +6,7 @@ on:
     paths:
       - 'repo-list.yaml'
   push:
-    branches: [main, dev]
+    branches: [main]
     paths:
       - 'repo-list.yaml'
 
