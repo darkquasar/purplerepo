@@ -1044,3 +1044,10 @@ repos:
   - mde
   - automation
   contributor_name: darkquasar
+- repo_url: https://github.com/mgreen27/DetectRaptor/
+  tags:
+  - dfir
+  - detection
+  - velociraptor
+  - threat-hunting
+  contributor_name: mgreen27
