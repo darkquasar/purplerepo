@@ -869,10 +869,6 @@ repos:
   - dfir
   - esxi
   contributor_name: darkquasar
-- repo_url: https://github.com/0xNinjaCyclone/hellMaker
-  tags:
-  - offensive-tradecraft
-  contributor_name: darkquasar
 - repo_url: https://github.com/ocsf/ocsf-schema
   tags:
   - defensive-tradecraft
