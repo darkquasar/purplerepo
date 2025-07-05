@@ -1057,7 +1057,7 @@ repos:
   - microsoft-defender
   - asr
   contributor_name: darkquasar
-- repo_url: https://github.com/VirusTotal/yara-x
+- repo_url: https://github.com/dwmetz/MalChela
   tags:
   - yara
   - malware-analysis
