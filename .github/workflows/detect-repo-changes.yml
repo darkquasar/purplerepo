@@ -4,11 +4,18 @@ on:
   push:
     branches: [ main, dev ]
     paths: [ 'repo-list.yaml' ]
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+    paths: [ 'repo-list.yaml' ]
 
 jobs:
-  detect-changes:
+  detect-changes-prod:
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
-    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+    environment: prod
     
     steps:
     - name: Checkout repository
@@ -101,11 +108,119 @@ jobs:
       run: |
         if [ "${{ steps.check-changes.outputs.file-changed }}" = "true" ]; then
           if [ "${{ steps.detect-changes.outputs.has_changes }}" = "true" ]; then
-            echo "✅ Found ${{ steps.detect-changes.outputs.payloads_count }} new repository entries"
-            echo "📤 Payloads sent to Cloudflare Worker"
+            echo "✅ Found ${{ steps.detect-changes.outputs.payloads_count }} new repository entries (PROD)"
+            echo "📤 Payloads sent to Cloudflare Worker (PROD)"
           else
-            echo "ℹ️ repo-list.yaml was modified but no new entries were detected"
+            echo "ℹ️ repo-list.yaml was modified but no new entries were detected (PROD)"
           fi
         else
-          echo "ℹ️ repo-list.yaml was not modified in this push"
+          echo "ℹ️ repo-list.yaml was not modified in this push (PROD)"
+        fi
+
+  detect-changes-dev:
+    if: |
+      github.event_name == 'push' && 
+      github.ref == 'refs/heads/dev' && 
+      github.actor == 'darkquasar'
+    runs-on: ubuntu-latest
+    environment: dev
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 2  # Fetch current and previous commit
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r .github/workflows/scripts/requirements.txt
+    
+    - name: Get commit SHAs
+      id: get-shas
+      run: |
+        # Get the current commit SHA (new)
+        NEW_SHA="${{ github.sha }}"
+        
+        # Get the previous commit SHA (old)
+        OLD_SHA=$(git rev-parse HEAD~1)
+        
+        echo "old-sha=$OLD_SHA" >> $GITHUB_OUTPUT
+        echo "new-sha=$NEW_SHA" >> $GITHUB_OUTPUT
+        
+        echo "Comparing commits:"
+        echo "Old SHA: $OLD_SHA"
+        echo "New SHA: $NEW_SHA"
+    
+    - name: Check if repo-list.yaml changed
+      id: check-changes
+      run: |
+        # Check if repo-list.yaml was modified in this commit
+        if git diff --name-only ${{ steps.get-shas.outputs.old-sha }} ${{ steps.get-shas.outputs.new-sha }} | grep -q "repo-list.yaml"; then
+          echo "repo-list.yaml was modified"
+          echo "file-changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "repo-list.yaml was not modified"
+          echo "file-changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Detect repository changes
+      id: detect-changes
+      if: steps.check-changes.outputs.file-changed == 'true'
+      run: |
+        python .github/workflows/scripts/detect_repo_changes.py \
+          --old-sha ${{ steps.get-shas.outputs.old-sha }} \
+          --new-sha ${{ steps.get-shas.outputs.new-sha }} \
+          --output-file payloads.json
+    
+    - name: Upload payloads artifact
+      if: steps.detect-changes.outputs.has_changes == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: repo-payloads-dev
+        path: payloads.json
+    
+    - name: Send payloads to Cloudflare Worker
+      if: steps.detect-changes.outputs.has_changes == 'true'
+      run: |
+        # Read the payloads from the file
+        PAYLOADS=$(cat payloads.json)
+        
+        # Send each payload to the Cloudflare Worker
+        echo "$PAYLOADS" | jq -c '.[]' | while read -r payload; do
+          echo "Sending payload to Cloudflare Worker (DEV):"
+          echo "$payload" | jq .
+          
+          # Replace with your actual Cloudflare Worker URL
+          WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL }}"
+          
+          if [ -n "$WORKER_URL" ]; then
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_WORKER_TOKEN }}" \
+              -d "$payload" \
+              "$WORKER_URL" \
+              --fail-with-body || echo "Failed to send payload to worker"
+          else
+            echo "CLOUDFLARE_WORKER_URL secret not set, skipping worker call"
+          fi
+        done
+    
+    - name: Summary
+      if: always()
+      run: |
+        if [ "${{ steps.check-changes.outputs.file-changed }}" = "true" ]; then
+          if [ "${{ steps.detect-changes.outputs.has_changes }}" = "true" ]; then
+            echo "✅ Found ${{ steps.detect-changes.outputs.payloads_count }} new repository entries (DEV)"
+            echo "📤 Payloads sent to Cloudflare Worker (DEV)"
+          else
+            echo "ℹ️ repo-list.yaml was modified but no new entries were detected (DEV)"
+          fi
+        else
+          echo "ℹ️ repo-list.yaml was not modified in this push (DEV)"
         fi
