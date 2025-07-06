@@ -2,23 +2,20 @@ name: Validate repo-list.yaml
 
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [main]
     paths:
       - 'repo-list.yaml'
   push:
-    branches: [main]
+    branches: [main, dev]
     paths:
       - 'repo-list.yaml'
 
 permissions:
   contents: read
-  pull-requests: write
-  issues: write
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    environment: ${{ (github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main') || (github.event_name == 'push' && github.ref == 'refs/heads/main') && 'prod' || 'dev' }}
     
     steps:
       - name: Checkout repository
@@ -59,83 +56,73 @@ jobs:
             echo "context=Push to ${{ github.ref_name }}" >> $GITHUB_OUTPUT
           fi
       
-      - name: Validate change limits and detect changes
+      - name: Validate repo-list.yaml changes
         id: validate-changes
         run: |
           echo "🔍 Validating changes for: ${{ steps.git-range.outputs.context }}"
           echo "📊 Comparing: ${{ steps.git-range.outputs.old_sha }} → ${{ steps.git-range.outputs.new_sha }}"
           
+          # Create step summary header
+          echo "# 📋 repo-list.yaml Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Context:** ${{ steps.git-range.outputs.context }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Comparison:** \`${{ steps.git-range.outputs.old_sha }}\` → \`${{ steps.git-range.outputs.new_sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
           # Run validation with change limits enforced
-          uv run python .github/workflows/scripts/detect_repo_changes.py \
+          if uv run python .github/workflows/scripts/detect_repo_changes.py \
             --old-sha "${{ steps.git-range.outputs.old_sha }}" \
             --new-sha "${{ steps.git-range.outputs.new_sha }}" \
-            --enforce-limits
-      
-      - name: Comment on PR (if validation fails)
-        if: failure() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const comment = `## ❌ Validation Failed
+            --enforce-limits; then
             
-            Your changes to \`repo-list.yaml\` failed validation. Please check the logs above for details.
+            echo "✅ Validation completed successfully!"
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "## ✅ Validation Passed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Your changes to \`repo-list.yaml\` have been validated successfully!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### What was checked:" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ YAML syntax and structure" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Required fields present (\`repo_url\`, \`tags\`, \`contributor_name\`)" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Maximum 6 tags per entry" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ No duplicate repository URLs" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Valid GitHub/Gist URL format" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Proper tag naming conventions" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Maximum 15 changes per PR" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "🚀 **Your changes are ready for review!**" >> $GITHUB_STEP_SUMMARY
             
-            ### Common issues:
-            - **Too many changes**: Maximum 15 entries can be added/removed per PR
-            - **Invalid format**: Check YAML syntax and required fields
-            - **Duplicate URLs**: Each repository URL must be unique
-            - **Too many tags**: Maximum 6 tags per entry
-            - **Invalid tag format**: Use lowercase with hyphens (e.g., \`offensive-tradecraft\`)
-            - **Missing contributor**: \`contributor_name\` field is required
+          else
+            echo "❌ Validation failed!"
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "## ❌ Validation Failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Your changes to \`repo-list.yaml\` failed validation. Please check the logs above for details." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Common issues:" >> $GITHUB_STEP_SUMMARY
+            echo "- **Too many changes**: Maximum 15 entries can be added/removed per PR" >> $GITHUB_STEP_SUMMARY
+            echo "- **Invalid format**: Check YAML syntax and required fields" >> $GITHUB_STEP_SUMMARY
+            echo "- **Duplicate URLs**: Each repository URL must be unique" >> $GITHUB_STEP_SUMMARY
+            echo "- **Too many tags**: Maximum 6 tags per entry" >> $GITHUB_STEP_SUMMARY
+            echo "- **Invalid tag format**: Use lowercase with hyphens (e.g., \`offensive-tradecraft\`)" >> $GITHUB_STEP_SUMMARY
+            echo "- **Missing contributor**: \`contributor_name\` field is required" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### How to fix:" >> $GITHUB_STEP_SUMMARY
+            echo "1. Review the validation errors in the workflow logs above" >> $GITHUB_STEP_SUMMARY
+            echo "2. Fix the issues in your branch" >> $GITHUB_STEP_SUMMARY
+            echo "3. Push the changes to update this PR" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Development setup:" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+            echo "uv sync --dev" >> $GITHUB_STEP_SUMMARY
+            echo "uv run pre-commit install" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Test locally:" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+            echo "uv run pre-commit run --all-files" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
             
-            ### How to fix:
-            1. Review the validation errors in the workflow logs
-            2. Fix the issues in your branch
-            3. Push the changes to update this PR
-            
-            ### Development setup:
-            \`\`\`bash
-            uv sync --dev
-            uv run pre-commit install
-            \`\`\`
-            
-            ### Test locally:
-            \`\`\`bash
-            uv run pre-commit run --all-files
-            \`\`\`
-            `;
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
-      
-      - name: Comment on PR (if validation passes)
-        if: success() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const comment = `## ✅ Validation Passed
-            
-            Your changes to \`repo-list.yaml\` have been validated successfully!
-            
-            ### What was checked:
-            - ✅ YAML syntax and structure
-            - ✅ Required fields present (\`repo_url\`, \`tags\`, \`contributor_name\`)
-            - ✅ Maximum 6 tags per entry
-            - ✅ No duplicate repository URLs
-            - ✅ Valid GitHub/Gist URL format
-            - ✅ Proper tag naming conventions
-            - ✅ Maximum 15 changes per PR
-            
-            Your PR is ready for review! 🚀
-            `;
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+            # Exit with error code to fail the workflow
+            exit 1
+          fi
