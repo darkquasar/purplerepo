@@ -1077,3 +1077,9 @@ repos:
   - threat-intelligence
   - threat-hunting
   contributor_name: zendannyy
+- repo_url: https://github.com/MHaggis/ASRGEN
+  tags:
+  - mde
+  - microsoft-defender
+  - asr
+  contributor_name: darkquasar
