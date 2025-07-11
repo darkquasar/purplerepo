@@ -1051,12 +1051,6 @@ repos:
   - velociraptor
   - threat-hunting
   contributor_name: mgreen27
-- repo_url: https://github.com/MHaggis/ASRGEN
-  tags:
-  - mde
-  - microsoft-defender
-  - asr
-  contributor_name: darkquasar
 - repo_url: https://github.com/VirusTotal/yara-x
   tags:
   - yara
