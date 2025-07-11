@@ -1083,3 +1083,10 @@ repos:
   - microsoft-defender
   - asr
   contributor_name: darkquasar
+- repo_url: https://github.com/karmine05/DEF3ND
+  tags:
+  - detection-engineering
+  - sigma
+  - sigma-rules
+  - streamlit
+  contributor_name: darkquasar
