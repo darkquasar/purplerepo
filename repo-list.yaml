@@ -1051,12 +1051,6 @@ repos:
   - velociraptor
   - threat-hunting
   contributor_name: mgreen27
-- repo_url: https://github.com/MHaggis/ASRGEN
-  tags:
-  - mde
-  - microsoft-defender
-  - asr
-  contributor_name: darkquasar
 - repo_url: https://github.com/VirusTotal/yara-x
   tags:
   - yara
@@ -1064,3 +1058,15 @@ repos:
   - threat-hunting
   - rust
   contributor_name: darkquasar
+- repo_url: https://github.com/InQuest/iocextract
+  tags:
+  - defensive-tradecraft
+  - threat-intelligence
+  - threat-hunting
+  contributor_name: zendannyy
+- repo_url: https://github.com/MarkBaggett/domain_stats
+  tags:
+  - defensive-tradecraft
+  - threat-intelligence
+  - threat-hunting
+  contributor_name: zendannyy
