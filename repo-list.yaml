@@ -1064,10 +1064,3 @@ repos:
   - threat-hunting
   - rust
   contributor_name: darkquasar
-- repo_url: https://github.com/dwmetz/MalChela
-  tags:
-  - yara
-  - malware-analysis
-  - threat-hunting
-  - rust
-  contributor_name: darkquasar
