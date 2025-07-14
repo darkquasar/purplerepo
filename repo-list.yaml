@@ -1090,3 +1090,19 @@ repos:
   - sigma-rules
   - streamlit
   contributor_name: darkquasar
+- repo_url: https://github.com/LouisMastelinck/LouSecInator
+  tags:
+  - detection-engineering
+  - mde
+  - microsoft-defender
+  - attack-simulation
+  contributor_name: darkquasar
+- repo_url: https://github.com/hotnops/apeman
+  tags:
+  - aws
+  - attack-path
+  - graph
+  - attack-graph
+  - offensive-tradecraft
+  - defensive-tradecraft
+  contributor_name: darkquasar
