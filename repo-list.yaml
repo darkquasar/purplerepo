@@ -1105,5 +1105,4 @@ repos:
   - attack-graph
   - offensive-tradecraft
   - defensive-tradecraft
-  - threat-hunting
   contributor_name: darkquasar
