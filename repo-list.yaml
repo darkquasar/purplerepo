@@ -1106,3 +1106,11 @@ repos:
   - offensive-tradecraft
   - defensive-tradecraft
   contributor_name: darkquasar
+- repo_url: https://github.com/Semperis/EntraGoat
+  tags:
+  - azure
+  - azure-ad
+  - entra-id
+  - attack-simulation
+  - ctf
+  contributor_name: darkquasar
