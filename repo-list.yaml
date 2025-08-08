@@ -1114,3 +1114,10 @@ repos:
   - attack-simulation
   - ctf
   contributor_name: darkquasar
+- repo_url: https://github.com/pouriyajamshidi/oxipot
+  tags:
+  - defensive-tradecraft
+  - cyber-deception
+  - rust
+  - ot
+  contributor_name: darkquasar
