@@ -121,7 +121,8 @@ jobs:
     if: |
       github.event_name == 'push' && 
       github.ref == 'refs/heads/dev' && 
-      github.actor == 'darkquasar'
+      github.actor == 'darkquasar' &&
+      !contains(github.event.head_commit.message, 'Merge pull request')
     runs-on: ubuntu-latest
     environment: dev
     
