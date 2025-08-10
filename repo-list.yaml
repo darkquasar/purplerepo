@@ -1114,3 +1114,19 @@ repos:
   - attack-simulation
   - ctf
   contributor_name: darkquasar
+- repo_url: https://github.com/pouriyajamshidi/oxipot
+  tags:
+  - defensive-tradecraft
+  - cyber-deception
+  - honeypot
+  - rust
+  - ot
+  contributor_name: darkquasar
+- repo_url: https://github.com/olafhartong/BamboozlEDR
+  tags:
+  - offensive-tradecraft
+  - defensive-tradecraft
+  - edr-evasion
+  - edr-testing
+  - etw
+  contributor_name: darkquasar
