@@ -5,10 +5,6 @@ on:
     branches: [main]
     paths:
       - 'repo-list.yaml'
-  push:
-    branches: [main, dev]
-    paths:
-      - 'repo-list.yaml'
 
 permissions:
   contents: read

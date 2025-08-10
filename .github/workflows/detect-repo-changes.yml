@@ -4,54 +4,19 @@ on:
   push:
     branches: [ main, dev ]
     paths: [ 'repo-list.yaml' ]
-  pull_request:
-    types: [closed]
-    branches: [ main ]
-    paths: [ 'repo-list.yaml' ]
 
 jobs:
-  determine-environment:
-    runs-on: ubuntu-latest
-    outputs:
-      environment: ${{ steps.env.outputs.environment }}
-      should_run: ${{ steps.env.outputs.should_run }}
-    steps:
-    - name: Determine environment and conditions
-      id: env
-      run: |
-        echo "Event: ${{ github.event_name }}"
-        echo "Ref: ${{ github.ref }}"
-        echo "Actor: ${{ github.actor }}"
-        
-        # Priority-based logic: PR events take precedence over push events
-        # This naturally handles the duplicate event issue when merging PRs
-        if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.pull_request.merged }}" == "true" && "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
-          echo "environment=prod" >> $GITHUB_OUTPUT
-          echo "should_run=true" >> $GITHUB_OUTPUT
-          echo "🚀 Will run in PROD environment (PR merged to main)"
-        elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/dev" && "${{ github.actor }}" == "darkquasar" ]]; then
-          echo "environment=dev" >> $GITHUB_OUTPUT
-          echo "should_run=true" >> $GITHUB_OUTPUT
-          echo "🧪 Will run in DEV environment (push to dev by darkquasar)"
-        elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
-          echo "environment=prod" >> $GITHUB_OUTPUT
-          echo "should_run=true" >> $GITHUB_OUTPUT
-          echo "🚀 Will run in PROD environment (direct push to main)"
-        else
-          echo "environment=none" >> $GITHUB_OUTPUT
-          echo "should_run=false" >> $GITHUB_OUTPUT
-          echo "⏭️ Skipping - no matching conditions for this event"
-        fi
-
   detect-changes:
-    needs: determine-environment
-    if: needs.determine-environment.outputs.should_run == 'true'
     runs-on: ubuntu-latest
-    environment: ${{ needs.determine-environment.outputs.environment }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     steps:
     - name: Environment info
       run: |
-        echo "🎯 Running in ${{ needs.determine-environment.outputs.environment }} environment"
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          echo "🚀 Running in PROD environment (push to main)"
+        elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+          echo "🧪 Running in DEV environment (push to dev)"
+        fi
     
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -109,7 +74,7 @@ jobs:
       if: steps.detect-changes.outputs.has_changes == 'true'
       uses: actions/upload-artifact@v4
       with:
-        name: repo-payloads-${{ needs.determine-environment.outputs.environment }}
+        name: repo-payloads-${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
         path: payloads.json
     
     - name: Send payloads to Cloudflare Worker
@@ -118,19 +83,21 @@ jobs:
         # Read the payloads from the file
         PAYLOADS=$(cat payloads.json)
         
-        # Determine which worker URL to use based on environment
-        if [ "${{ needs.determine-environment.outputs.environment }}" = "prod" ]; then
+        # Determine which worker URL to use based on branch
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
           WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL_PROD }}"
-        elif [ "${{ needs.determine-environment.outputs.environment }}" = "dev" ]; then
+          ENV_NAME="PROD"
+        elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
           WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL_DEV }}"
+          ENV_NAME="DEV"
         else
-          echo "Unknown environment: ${{ needs.determine-environment.outputs.environment }}"
+          echo "Unknown branch: ${{ github.ref }}"
           exit 1
         fi
         
         # Send each payload to the Cloudflare Worker
         echo "$PAYLOADS" | jq -c '.[]' | while read -r payload; do
-          echo "Sending payload to Cloudflare Worker (${{ needs.determine-environment.outputs.environment }}):"
+          echo "Sending payload to Cloudflare Worker ($ENV_NAME):"
           echo "$payload" | jq .
           
           if [ -n "$WORKER_URL" ]; then
@@ -141,34 +108,26 @@ jobs:
               "$WORKER_URL" \
               --fail-with-body || echo "Failed to send payload to worker"
           else
-            echo "CLOUDFLARE_WORKER_URL for ${{ needs.determine-environment.outputs.environment }} environment not set, skipping worker call"
+            echo "CLOUDFLARE_WORKER_URL for $ENV_NAME environment not set, skipping worker call"
           fi
         done
     
     - name: Summary
       if: always()
       run: |
-        ENV_UPPER=$(echo "${{ needs.determine-environment.outputs.environment }}" | tr '[:lower:]' '[:upper:]')
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          ENV_NAME="PROD"
+        elif [ "${{ github.ref }}" = "refs/heads/dev" ]; then
+          ENV_NAME="DEV"
+        fi
         
         if [ "${{ steps.check-changes.outputs.file-changed }}" = "true" ]; then
           if [ "${{ steps.detect-changes.outputs.has_changes }}" = "true" ]; then
-            echo "✅ Found ${{ steps.detect-changes.outputs.payloads_count }} new repository entries ($ENV_UPPER)"
-            echo "📤 Payloads sent to Cloudflare Worker ($ENV_UPPER)"
+            echo "✅ Found ${{ steps.detect-changes.outputs.payloads_count }} new repository entries ($ENV_NAME)"
+            echo "📤 Payloads sent to Cloudflare Worker ($ENV_NAME)"
           else
-            echo "ℹ️ repo-list.yaml was modified but no new entries were detected ($ENV_UPPER)"
+            echo "ℹ️ repo-list.yaml was modified but no new entries were detected ($ENV_NAME)"
           fi
         else
-          echo "ℹ️ repo-list.yaml was not modified in this push ($ENV_UPPER)"
+          echo "ℹ️ repo-list.yaml was not modified in this push ($ENV_NAME)"
         fi
-
-  workflow-skipped:
-    needs: determine-environment
-    if: needs.determine-environment.outputs.should_run == 'false'
-    runs-on: ubuntu-latest
-    steps:
-    - name: Workflow skipped summary
-      run: |
-        echo "⏭️ Workflow skipped - event did not match any trigger conditions"
-        echo "Event: ${{ github.event_name }}"
-        echo "Ref: ${{ github.ref }}"
-        echo "Actor: ${{ github.actor }}"
