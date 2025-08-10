@@ -1130,3 +1130,29 @@ repos:
   - edr-testing
   - etw
   contributor_name: darkquasar
+- repo_url: https://github.com/SAP/cloud-active-defense
+  tags:
+  - cyber-deception
+  - envoy
+  - active-defense
+  - honeypot
+  contributor_name: darkquasar
+- repo_url: https://github.com/christophe77/express-honeypot
+  tags:
+  - cyber-deception
+  - honeypot
+  contributor_name: darkquasar
+- repo_url: https://github.com/paralax/awesome-honeypots
+  tags:
+  - cyber-deception
+  - honeypot
+  contributor_name: darkquasar
+- repo_url: https://github.com/bagelByt3s/LudusHound
+  tags:
+  - offensive-tradecraft
+  - defensive-tradecraft
+  - bloodhound
+  - active-directory
+  - ludus
+  contributor_name: darkquasar
+  
