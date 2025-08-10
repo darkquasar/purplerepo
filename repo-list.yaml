@@ -1121,11 +1121,3 @@ repos:
   - rust
   - ot
   contributor_name: darkquasar
-- repo_url: https://github.com/olafhartong/BamboozlEDR
-  tags:
-  - offensive-tradecraft
-  - defensive-tradecraft
-  - edr-evasion
-  - edr-testing
-  - etw
-  contributor_name: darkquasar
