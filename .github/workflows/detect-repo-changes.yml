@@ -23,19 +23,20 @@ jobs:
         echo "Ref: ${{ github.ref }}"
         echo "Actor: ${{ github.actor }}"
         
-        # Determine which environment to use
+        # Priority-based logic: PR events take precedence over push events
+        # This naturally handles the duplicate event issue when merging PRs
         if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.pull_request.merged }}" == "true" && "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
           echo "environment=prod" >> $GITHUB_OUTPUT
           echo "should_run=true" >> $GITHUB_OUTPUT
-          echo "🚀 Will run in PROD environment (PR merge to main)"
-        elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" && ! "${{ github.event.head_commit.message }}" =~ ^"Merge pull request" ]]; then
-          echo "environment=prod" >> $GITHUB_OUTPUT
-          echo "should_run=true" >> $GITHUB_OUTPUT
-          echo "🚀 Will run in PROD environment (direct push to main)"
+          echo "🚀 Will run in PROD environment (PR merged to main)"
         elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/dev" && "${{ github.actor }}" == "darkquasar" ]]; then
           echo "environment=dev" >> $GITHUB_OUTPUT
           echo "should_run=true" >> $GITHUB_OUTPUT
           echo "🧪 Will run in DEV environment (push to dev by darkquasar)"
+        elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+          echo "environment=prod" >> $GITHUB_OUTPUT
+          echo "should_run=true" >> $GITHUB_OUTPUT
+          echo "🚀 Will run in PROD environment (direct push to main)"
         else
           echo "environment=none" >> $GITHUB_OUTPUT
           echo "should_run=false" >> $GITHUB_OUTPUT
@@ -117,13 +118,20 @@ jobs:
         # Read the payloads from the file
         PAYLOADS=$(cat payloads.json)
         
+        # Determine which worker URL to use based on environment
+        if [ "${{ needs.determine-environment.outputs.environment }}" = "prod" ]; then
+          WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL_PROD }}"
+        elif [ "${{ needs.determine-environment.outputs.environment }}" = "dev" ]; then
+          WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL_DEV }}"
+        else
+          echo "Unknown environment: ${{ needs.determine-environment.outputs.environment }}"
+          exit 1
+        fi
+        
         # Send each payload to the Cloudflare Worker
         echo "$PAYLOADS" | jq -c '.[]' | while read -r payload; do
           echo "Sending payload to Cloudflare Worker (${{ needs.determine-environment.outputs.environment }}):"
           echo "$payload" | jq .
-          
-          # Use environment-specific worker URL
-          WORKER_URL="${{ secrets.CLOUDFLARE_WORKER_URL }}"
           
           if [ -n "$WORKER_URL" ]; then
             curl -X POST \
@@ -133,7 +141,7 @@ jobs:
               "$WORKER_URL" \
               --fail-with-body || echo "Failed to send payload to worker"
           else
-            echo "CLOUDFLARE_WORKER_URL secret not set, skipping worker call"
+            echo "CLOUDFLARE_WORKER_URL for ${{ needs.determine-environment.outputs.environment }} environment not set, skipping worker call"
           fi
         done
     
